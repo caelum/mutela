@@ -1,0 +1,13 @@
+bin
+generated
+target
+*.class
+.gradle
+.classpath
+.project
+.classpath.old
+build
+logs
+log
+lib/cachedir
+
