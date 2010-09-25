@@ -29,4 +29,16 @@ public class MostTweetedLinksTest {
 		Assert.assertEquals(1 , mtl.getNumberOfHits(l3));
 		Assert.assertEquals(0 , mtl.getNumberOfHits(l4));
 	}
+
+	@Test
+	public void shouldGetMostTweetLinksInDescendingOrder() {
+		MostTweetedLinks mtl = new MostTweetedLinks(links);
+
+		List<Link> sortedLinks = mtl.getSortedLinks();
+		Assert.assertEquals(3 , sortedLinks.size());
+		Assert.assertEquals(l1 , sortedLinks.get(0));
+		Assert.assertEquals(l2 , sortedLinks.get(1));
+		Assert.assertEquals(l3 , sortedLinks.get(2));
+	}
+
 }
