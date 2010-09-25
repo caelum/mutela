@@ -35,6 +35,6 @@ dependencies {
 	testCompile group: 'org.mockito', name: 'mockito-all', version: '1.8.5'
         
 	lib = "$projectDir/lib"
-        compiler files(fileTree(dir: lib as File, includes: ['*.jar']))
+        compile files(fileTree(dir: lib as File, includes: ['*.jar']))
 }
 

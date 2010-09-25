@@ -31,7 +31,7 @@ public class MostTweetedLinksTest {
 	}
 
 	@Test
-	public void shouldGetMostTweetLinksInDescendingOrder() {
+	public void shouldGetMostTweetedLinksInDescendingOrder() {
 		MostTweetedLinks mtl = new MostTweetedLinks(links);
 
 		List<Link> sortedLinks = mtl.getSortedLinks();
@@ -41,4 +41,14 @@ public class MostTweetedLinksTest {
 		Assert.assertEquals(l3 , sortedLinks.get(2));
 	}
 
+
+	@Test
+	public void shouldGetMostTweetedLinksInDescendingOrderCapped() {
+		MostTweetedLinks mtl = new MostTweetedLinks(links);
+
+		List<Link> sortedLinks = mtl.getSortedLinks(2);
+		Assert.assertEquals(2 , sortedLinks.size());
+		Assert.assertEquals(l1 , sortedLinks.get(0));
+		Assert.assertEquals(l2 , sortedLinks.get(1));
+	}
 }
