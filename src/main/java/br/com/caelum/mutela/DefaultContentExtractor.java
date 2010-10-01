@@ -79,8 +79,12 @@ public class DefaultContentExtractor implements ContentExtractor {
 		log.info("Total de " + elements.size() + " elementos ");
 
 		for (Element e : elements.subList(0, 3)) {
+			log.info("");
 			log.info("======================== Score deste: " + elementToScore.get(e));
-			log.info(e.toString());
+			log.info(e.getTextExtractor().setIncludeAttributes(true).toString());
+			log.info("======================== Raw html: ");
+			log.info(e.getTextExtractor().setIncludeAttributes(true).toString());
+
 		}
 		
 		this.content = elements.get(0).getTextExtractor().setIncludeAttributes(true).toString();
