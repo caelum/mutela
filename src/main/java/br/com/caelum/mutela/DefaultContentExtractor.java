@@ -10,6 +10,7 @@ import java.util.Map;
 import net.htmlparser.jericho.CharacterReference;
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.HTMLElementName;
+import net.htmlparser.jericho.HTMLElements;
 import net.htmlparser.jericho.Source;
 import net.htmlparser.jericho.StartTag;
 
@@ -18,39 +19,39 @@ import org.slf4j.LoggerFactory;
 
 public class DefaultContentExtractor implements ContentExtractor {
 
-	private final String content;
+	private final String fullContent;
 
 	private Map<Element, Integer> elementToScore = new HashMap<Element, Integer>();
 	
 	private static Logger log = LoggerFactory.getLogger(DefaultContentExtractor.class);
 
-	// from Readability
-	private String unlikelyCandidates = "combx|comment|community|disqus|extra|foot|header|menu|remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate|pagination|pager|popup";
-	private String okMaybeItsACandidate = "and|article|body|column|main|shadow";
-	private String positive = "article|body|content|entry|hentry|main|page|pagination|post|text|blog|story";
-	private String negative = "combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget";
-	private String divToPElements = "<(blockquote|dl|div|ol|p|pre|table|ul)";
+	// adaptado do Readability
+	public static final  String unlikelyCandidates = "(?i)(?m).*[combx|comment|community|disqus|extra|foot|header|menu|remark|rss|shoutbox|sidebar|sponsor|agegate|pagination|pager|popup].*";
+	public  static final String okMaybeItsACandidate = "(?i)(?m).*[and|article|body|column|main|shadow].*";
+	public static final String positive = "(?i)(?m).*[article|body|content|entry|hentry|main|page|pagination|post|text|blog|story].*";
+	public static final String negative = "(?i)(?m).*[combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget].*";
+	public static final String divToPElements = "(?i)(?m).*<[a|blockquote|dl|div|ol|p|pre|table|ul].*";
 
 	private List<Element> elements;
 	
 
-	public DefaultContentExtractor(String content) {
-		this.content = content;
-		Source source = new Source(this.content);
+	public DefaultContentExtractor(String fullContent) {
+		this.fullContent = fullContent;
+		Source source = new Source(this.fullContent);
 		source.fullSequentialParse();
 		this.elements = source.getAllElements();
 		for (Iterator<Element> i = elements.iterator(); i.hasNext();) {
 			Element e = i.next();
 			int weight = getValueForTag(e.getStartTag());
 			
-			if (matches(e.getAttributeValue("class"), positive)) {
+			if (matches(e.getAttributeValue("class"), positive) || matches(e.getAttributeValue("id"), positive)  ) {
 				weight +=50;
 			}
-			if (matches(e.getAttributeValue("class"), negative)) {
+			if (matches(e.getAttributeValue("class"), negative) || matches(e.getAttributeValue("id"), negative)) {
 				weight -=50;
 			}
 			if (matches(e.getAttributeValue("class"), okMaybeItsACandidate)) {
-				weight +=3;
+				weight +=10;
 			}
 			if (matches(e.getAttributeValue("class"), unlikelyCandidates)) {
 				weight -=10;
@@ -73,14 +74,12 @@ public class DefaultContentExtractor implements ContentExtractor {
 		});
 		
 		Collections.reverse(elements);
-		
-		System.out.println();
-		
-		System.out.println(elements.size());
+
+		log.info("Total de " + elements.size()+ " elementos ");
+
 		for(Element e : elements.subList(0, 3)) {
-			System.out.println("========================");
-			System.out.println(elementToScore.get(e));
-			System.out.println(e);
+			log.info("======================== Score deste: " + elementToScore.get(e));
+			log.info(e.toString());
 		}
 	}
 
@@ -95,15 +94,15 @@ public class DefaultContentExtractor implements ContentExtractor {
 
 	private int getValueForTag(StartTag tag) {
 		 String name = tag.getName().toUpperCase();
-		 if(name.equals("DIV")) return 5;
-		 if("PRE TD BLOCKQUOTE".contains(name)) return 3;
-		 if("ADDRESS OL UL DL DD DT LI FORM".contains(name)) return -3;
-		 if("H1 H2 H3 H4 H5 H6 TH".contains(name)) return -5;
+		 if(name.equals("DIV")) return 10;
+		 if("PRE TD BLOCKQUOTE".contains(name)) return 5;
+		 if("ADDRESS OL UL DL DD DT LI FORM".contains(name)) return -5;
+		 if("H1 H2 H3 H4 H5 H6 TH".contains(name)) return -10;
 		return 0;
 	}
 
 	private boolean canBeContent(Element e) {
-		return e.getName() == HTMLElementName.P;//  || !e.getContent().toString().matches(divToPElements);
+		return e.getName() == HTMLElementName.P ;//|| (e.getName() == HTMLElementName.DIV && !e.getContent().toString().matches(divToPElements));
 	}
 
 	private boolean matches(String value, String regex) {
@@ -111,29 +110,6 @@ public class DefaultContentExtractor implements ContentExtractor {
 		return value.matches(regex);
 	}
 
-	private static String getTitle(Source source) {
-		Element titleElement = source.getFirstElement(HTMLElementName.TITLE);
-		if (titleElement == null)
-			return null;
-		// TITLE element never contains other tags so just decode it collapsing
-		// whitespace:
-		return CharacterReference.decodeCollapseWhiteSpace(titleElement.getContent());
-	}
-
-	private static String getMetaValue(Source source, String key) {
-		for (int pos = 0; pos < source.length();) {
-			StartTag startTag = source.getNextStartTag(pos, "name", key, false);
-			if (startTag == null)
-				return null;
-			if (startTag.getName() == HTMLElementName.META)
-				return startTag.getAttributeValue("content"); // Attribute
-																// values are
-																// automatically
-																// decoded
-			pos = startTag.getEnd();
-		}
-		return null;
-	}
 
 	@Override
 	public String content() {
