@@ -41,36 +41,64 @@ public class DefaultContentExtractor implements ContentExtractor {
 		Source source = new Source(this.fullContent);
 		source.fullSequentialParse();
 		this.elements = source.getAllElements();
-		for (Iterator<Element> i = elements.iterator(); i.hasNext();) {
-			Element e = i.next();
-			int weight = getValueForTag(e.getStartTag());
 
-			if (matches(e.getAttributeValue("class"), positive) || matches(e.getAttributeValue("id"), positive)) {
-				weight += 50;
-			}
-			if (matches(e.getAttributeValue("class"), negative) || matches(e.getAttributeValue("id"), negative)) {
-				weight -= 50;
-			}
-			if (matches(e.getAttributeValue("class"), okMaybeItsACandidate)) {
-				weight += 10;
-			}
-			if (matches(e.getAttributeValue("class"), unlikelyCandidates)) {
-				weight -= 10;
-			}
+		for (Iterator<Element> i = elements.iterator(); i.hasNext();) {
+
+			// pontuamos apenas P, TD, PRE e tambem DIVs que poderiam ser PRE
+
+			// adiciona os pontos pro pai dele, e tambem m etade pro av™ dele.
+			Element e = i.next();
 
 			if (canBeContent(e)) {
-				weight += e.toString().split(",").length;
-				addScore(e.getParentElement(), weight);
-				i.remove();
-			} else {
-				addScore(e, weight);
+				int weight = getValueForTag(e.getStartTag());
+
+				if (matches(e.getAttributeValue("class"), positive) || matches(e.getAttributeValue("id"), positive)) {
+					weight += 50;
+				}
+				if (matches(e.getAttributeValue("class"), negative) || matches(e.getAttributeValue("id"), negative)) {
+					weight -= 50;
+				}
+				if (matches(e.getAttributeValue("class"), okMaybeItsACandidate)) {
+					weight += 10;
+				}
+				if (matches(e.getAttributeValue("class"), unlikelyCandidates)) {
+					weight -= 10;
+				}
+
+				String inner = e.getTextExtractor().setIncludeAttributes(true).toString();
+				if (inner.length() < 25)
+					continue; // mto pequeno
+
+				weight += (inner.split(",|\\.|;").length + 1) * 2;
+
+				int links = 0;
+				for (Element l : e.getAllElements("a")) {
+					links += l.toString().length();
+				}
+
+				if (weight > 0)
+					weight *= (double) (1 - ((double) links / (double) e.toString().length()));
+
+				// dono recebe pontuacao
+				if (e.getParentElement() != null)
+					addScore(e.getParentElement(), weight);
+
+				System.out.println(weight);
+				// avo fica com a metade
+				// if (e.getParentElement().getParentElement() != null)
+				// addScore(e.getParentElement().getParentElement(), weight /
+				// 2);
 			}
-			System.out.println(weight);
+
 		}
 
 		Collections.sort(elements, new Comparator<Element>() {
 			public int compare(Element o1, Element o2) {
-				return elementToScore.get(o1) - elementToScore.get(o2);
+				return getScore(o1) - getScore(o2);
+			}
+
+			private int getScore(Element e) {
+				return elementToScore.get(e) == null ? 0 : elementToScore.get(e);
 			}
 		});
 
@@ -78,15 +106,16 @@ public class DefaultContentExtractor implements ContentExtractor {
 
 		log.info("Total de " + elements.size() + " elementos ");
 
-		for (Element e : elements.subList(0, 3)) {
+		// imprime os 3 "primeiros"
+		for (Element e : elements.subList(0, Math.min(3, elements.size()))) {
 			log.info("");
 			log.info("======================== Score deste: " + elementToScore.get(e));
 			log.info(e.getTextExtractor().setIncludeAttributes(true).toString());
 			log.info("======================== Raw html: ");
-			log.info(e.getTextExtractor().setIncludeAttributes(true).toString());
+			log.info(e.toString());
 
 		}
-		
+
 		this.content = elements.get(0).getTextExtractor().setIncludeAttributes(true).toString();
 	}
 
@@ -112,9 +141,9 @@ public class DefaultContentExtractor implements ContentExtractor {
 	}
 
 	private boolean canBeContent(Element e) {
-		return e.getName() == HTMLElementName.P;// || (e.getName() ==
-												// HTMLElementName.DIV &&
-												// !e.getContent().toString().matches(divToPElements));
+		return e.getName().toLowerCase() == HTMLElementName.P || e.getName().toLowerCase() == HTMLElementName.PRE;
+		// || (e.getName() == HTMLElementName.DIV &&
+		// !e.getContent().toString().matches(divToPElements));
 	}
 
 	private boolean matches(String value, String regex) {
