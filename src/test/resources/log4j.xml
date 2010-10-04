@@ -11,7 +11,7 @@
 
 
 	<category name="br.com.caelum">
-		<priority value="INFO" />
+		<priority value="DEBUG" />
 		<appender-ref ref="main" />
 	</category>
 

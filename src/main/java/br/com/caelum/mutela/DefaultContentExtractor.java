@@ -7,19 +7,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import net.htmlparser.jericho.CharacterReference;
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.HTMLElementName;
-import net.htmlparser.jericho.HTMLElements;
 import net.htmlparser.jericho.Source;
 import net.htmlparser.jericho.StartTag;
+import net.htmlparser.jericho.TextExtractor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DefaultContentExtractor implements ContentExtractor {
 
-	private final String fullContent;
+	private  String fullContent;
 
 	private Map<Element, Integer> elementToScore = new HashMap<Element, Integer>();
 
@@ -36,20 +35,26 @@ public class DefaultContentExtractor implements ContentExtractor {
 
 	private String content;
 
+	private Integer score;
+
 	public DefaultContentExtractor(String fullContent) {
+		parse(fullContent);
+	}
+
+	private void parse(String fullContent) {
 		this.fullContent = fullContent;
 		Source source = new Source(this.fullContent);
 		source.fullSequentialParse();
+		
 		this.elements = source.getAllElements();
 
 		for (Iterator<Element> i = elements.iterator(); i.hasNext();) {
 
-			// pontuamos apenas P, TD, PRE e tambem DIVs que poderiam ser PRE
-
-			// adiciona os pontos pro pai dele, e tambem m etade pro av™ dele.
 			Element e = i.next();
 
 			if (canBeContent(e)) {
+				// pontuamos apenas P, TD, PRE e tambem DIVs que poderiam ser PRE
+				// adiciona os pontos pro pai dele, e tambem m etade pro av™ dele.
 				int weight = getValueForTag(e.getStartTag());
 
 				if (matches(e.getAttributeValue("class"), positive) || matches(e.getAttributeValue("id"), positive)) {
@@ -67,31 +72,31 @@ public class DefaultContentExtractor implements ContentExtractor {
 
 				String inner = e.getTextExtractor().setIncludeAttributes(true).toString();
 				if (inner.length() < 25)
-					continue; // mto pequeno
+					continue; // paragrafo pequeno demais
 
+				// 1 ponto para cada virgula ou ponto
 				weight += (inner.split(",|\\.|;").length + 1) * 2;
 
 				int links = 0;
 				for (Element l : e.getAllElements("a")) {
-					links += l.toString().length();
+					links += l.getTextExtractor().toString().length();
 				}
 
+				// retira pontos proporcionalmente a quantidade de links
 				if (weight > 0)
 					weight *= (double) (1 - ((double) links / (double) e.toString().length()));
 
-				// dono recebe pontuacao
+				// parentElement Ž quem recebe pontuacao
 				if (e.getParentElement() != null)
 					addScore(e.getParentElement(), weight);
-
-				System.out.println(weight);
-				// avo fica com a metade
-				// if (e.getParentElement().getParentElement() != null)
-				// addScore(e.getParentElement().getParentElement(), weight /
-				// 2);
 			}
 
 		}
 
+		if(elements.isEmpty()) {
+			throw new IllegalStateException("nenhum elemento candidato encontrado");
+		}
+		// ordenando para pegar quem tem mais pontos:
 		Collections.sort(elements, new Comparator<Element>() {
 			public int compare(Element o1, Element o2) {
 				return getScore(o1) - getScore(o2);
@@ -104,19 +109,21 @@ public class DefaultContentExtractor implements ContentExtractor {
 
 		Collections.reverse(elements);
 
-		log.info("Total de " + elements.size() + " elementos ");
+		log.debug("Total de " + elements.size() + " elementos ");
 
-		// imprime os 3 "primeiros"
+		// imprime os 3 "primeiros" candidatos
 		for (Element e : elements.subList(0, Math.min(3, elements.size()))) {
-			log.info("");
-			log.info("======================== Score deste: " + elementToScore.get(e));
-			log.info(e.getTextExtractor().setIncludeAttributes(true).toString());
-			log.info("======================== Raw html: ");
-			log.info(e.toString());
-
+			log.debug("");
+			log.debug("======================== Score deste: " + elementToScore.get(e));
+			TextExtractor extractor=new TextExtractor(e);
+			log.debug(extractor.setIncludeAttributes(false).toString());
+			log.debug("======================== Raw html: ");
+			log.debug(e.toString());
 		}
 
-		this.content = elements.get(0).getTextExtractor().setIncludeAttributes(true).toString();
+		
+		this.content = elements.get(0).getTextExtractor().setIncludeAttributes(false).toString();
+		this.score = elementToScore.get(elements.get(0));
 	}
 
 	private void addScore(Element element, int weight) {
@@ -141,6 +148,7 @@ public class DefaultContentExtractor implements ContentExtractor {
 	}
 
 	private boolean canBeContent(Element e) {
+		// P, PRE ou  DIV que se encaixa como P
 		return e.getName().toLowerCase() == HTMLElementName.P || e.getName().toLowerCase() == HTMLElementName.PRE;
 		// || (e.getName() == HTMLElementName.DIV &&
 		// !e.getContent().toString().matches(divToPElements));
@@ -161,6 +169,10 @@ public class DefaultContentExtractor implements ContentExtractor {
 	public String title() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public int getScore() {
+		return score;
 	}
 
 }
