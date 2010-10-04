@@ -34,7 +34,6 @@ public class DefaultContentExtractorTest {
 		// http://blog.chloeveltman.com/2009/05/two-very-different-symphonies.html
 		
 		test("/symphony.txt", "/symphony.html", "Two Very Different Symphonies");
-		
 		System.out.println("blabla a bla".matches(DefaultContentExtractor.divToPElements));
 	}
 	
