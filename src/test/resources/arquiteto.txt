@@ -1,0 +1,23 @@
+Durante o atual processo de revisão do livro de Arquitetura e Design de Software, discussões apareceram sobre o termo arquiteto. Antes de definir o que faz um arquiteto, há o termo arquitetura.
+
+
+Quem é o arquiteto? Aquele que senta sozinho e toma todas as grandes decisões?
+O que é a arquitetura de uma aplicação?
+Uma pergunta difícil de responder. Entre as definições mais antigas, Roy Fielding possui um bom texto no primeiro capítulo de sua dissertação de doutorado. O Instituto de Engenharia de Software da Universidade de Carnegie Mellon apresenta diferentes definições, algumas clássicas e bastante conhecidas, como “arquitetura é a estrutura do sistema, composta de componentes, as propriedades que são visíveis externamente desses componentes e o relacionamento entre eles“.
+
+Nas palavras de Martin Fowler, “o termo arquitetura envolve a noção dos principais elementos do sistema, as peças que são difíceis de mudar. Uma fundação na qual o resto precisa ser construído“. Fowler reformula sua definição de arquitetura e a define como “as peças que as pessoas acham que é difícil de mudar“. No mesmo artigo Ralph Johnson, do GoF, diz que arquitetura “é o conjunto de decisões de design que gostaríamos de ter feito no começo do projeto” e termina com uma definição mais abrangente: “arquitetura é tudo aquilo que importa“. Com tantas definições, talvez seja mais fácil diferenciarmos design de arquitetura.
+
+Qual é a diferença de design e arquitetura de software?
+Aqui também temos uma resposta clássica na literatura: a arquitetura é responsável pelos requisitos não-funcionais, e o design pelos funcionais. Mas parece que essa distinção não é tão clara assim para muitos outros autores.
+
+Neal Ford apresenta uma distinção simples, realçando que o design é feito em cima do que foi decidido pela arquitetura, e por isso o que faz parte da arquitetura é mais difícil de mudar. Devemos minimizar as peças que dificultam mudanças do nosso design, mas é impossível eliminar todas, além de que flexibilidade sempre vem a um custo de complexidade.
+
+
+É difícil criar um distinção maior entre os dois. No livro Patterns of Enterprise Application Architecture, Fowler diz que “alguns dos padrões nesse livro podem ser chamados arquiteturais, já que representam decisões importantes sobre essas partes; outros são mais sobre design e te ajudam a implementar essa arquitetura. Eu não faço nenhuma tentativa forte de separar esses dois, já que é o que é arquitetural ou não é subjetivo“.
+
+O arquiteto deve saber programar na plataforma em questão?
+Sem dúvida. Cada vez mais vemos que o design e a implementação devem ser trabalhados juntos. A imagem de um arquiteto distante sem profundo conhecimento técnico que apenas toma as grandes decisões ficou pra trás: conhecimento técnico e a capacidade de liderança são as características fundamentais.
+
+Mais do que querer ser o poderoso arquiteto que apenas despacha ordens e toma todas as grandes decisões, cada vez mais enxergamos que o caminho é ser o líder que incentiva essa tomada de decisão, além de ser um exímio programador. Parafraseando mais uma vez Martin Fowler, “…o arquiteto deve ser como um guia… que é um experiente e capacitado membro da equipe que ensina aos outros a melhor se virarem, ainda assim ele está sempre lá para as partes mais complicadas“.
+
+Vale lembrar que precisamos de mais de 10 mil horas, ou 10 anos, para dominar uma linguagem.

@@ -1,0 +1,826 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US"> 
+ 
+<head profile="http://gmpg.org/xfn/11"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+ 
+	<title>Então você quer ser um arquiteto Java? | blog.caelum.com.br</title> 
+ 
+	<link rel="stylesheet" type="text/css" media="screen" href="http://www.caelum.com.br/css/caelum.package.css" /> 
+	<style type="text/css" media="screen"> 
+		@import url( http://blog.caelum.com.br/wp-content/themes/caelum_theme/style.css );
+	</style> 
+ 
+	<link href="home.css" media="screen" type="text/css" rel="stylesheet"></link> 
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://blog.caelum.com.br/feed/" /> 
+	<link rel="alternate" type="text/xml" title="RSS .92" href="http://blog.caelum.com.br/feed/rss/" /> 
+	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="http://blog.caelum.com.br/feed/atom/" /> 
+	
+	<link rel="shortcut icon" href="http://www.caelum.com.br/favicon.ico" type="image/x-icon" /> 
+	
+	<style>.banner-border{display: none}</style> 
+ 
+	<link rel="pingback" href="http://blog.caelum.com.br/xmlrpc.php" /> 
+		<link rel='archives' title='September 2010' href='http://blog.caelum.com.br/2010/09/' /> 
+	<link rel='archives' title='August 2010' href='http://blog.caelum.com.br/2010/08/' /> 
+	<link rel='archives' title='July 2010' href='http://blog.caelum.com.br/2010/07/' /> 
+	<link rel='archives' title='June 2010' href='http://blog.caelum.com.br/2010/06/' /> 
+	<link rel='archives' title='May 2010' href='http://blog.caelum.com.br/2010/05/' /> 
+	<link rel='archives' title='April 2010' href='http://blog.caelum.com.br/2010/04/' /> 
+	<link rel='archives' title='March 2010' href='http://blog.caelum.com.br/2010/03/' /> 
+	<link rel='archives' title='February 2010' href='http://blog.caelum.com.br/2010/02/' /> 
+	<link rel='archives' title='January 2010' href='http://blog.caelum.com.br/2010/01/' /> 
+	<link rel='archives' title='December 2009' href='http://blog.caelum.com.br/2009/12/' /> 
+	<link rel='archives' title='November 2009' href='http://blog.caelum.com.br/2009/11/' /> 
+	<link rel='archives' title='October 2009' href='http://blog.caelum.com.br/2009/10/' /> 
+	<link rel='archives' title='September 2009' href='http://blog.caelum.com.br/2009/09/' /> 
+	<link rel='archives' title='August 2009' href='http://blog.caelum.com.br/2009/08/' /> 
+	<link rel='archives' title='July 2009' href='http://blog.caelum.com.br/2009/07/' /> 
+	<link rel='archives' title='June 2009' href='http://blog.caelum.com.br/2009/06/' /> 
+	<link rel='archives' title='May 2009' href='http://blog.caelum.com.br/2009/05/' /> 
+	<link rel='archives' title='April 2009' href='http://blog.caelum.com.br/2009/04/' /> 
+	<link rel='archives' title='March 2009' href='http://blog.caelum.com.br/2009/03/' /> 
+	<link rel='archives' title='February 2009' href='http://blog.caelum.com.br/2009/02/' /> 
+	<link rel='archives' title='January 2009' href='http://blog.caelum.com.br/2009/01/' /> 
+	<link rel='archives' title='December 2008' href='http://blog.caelum.com.br/2008/12/' /> 
+	<link rel='archives' title='November 2008' href='http://blog.caelum.com.br/2008/11/' /> 
+	<link rel='archives' title='October 2008' href='http://blog.caelum.com.br/2008/10/' /> 
+	<link rel='archives' title='September 2008' href='http://blog.caelum.com.br/2008/09/' /> 
+	<link rel='archives' title='August 2008' href='http://blog.caelum.com.br/2008/08/' /> 
+	<link rel='archives' title='July 2008' href='http://blog.caelum.com.br/2008/07/' /> 
+	<link rel='archives' title='June 2008' href='http://blog.caelum.com.br/2008/06/' /> 
+	<link rel='archives' title='May 2008' href='http://blog.caelum.com.br/2008/05/' /> 
+	<link rel='archives' title='April 2008' href='http://blog.caelum.com.br/2008/04/' /> 
+	<link rel='archives' title='March 2008' href='http://blog.caelum.com.br/2008/03/' /> 
+	<link rel='archives' title='February 2008' href='http://blog.caelum.com.br/2008/02/' /> 
+	<link rel='archives' title='January 2008' href='http://blog.caelum.com.br/2008/01/' /> 
+	<link rel='archives' title='December 2007' href='http://blog.caelum.com.br/2007/12/' /> 
+	<link rel='archives' title='November 2007' href='http://blog.caelum.com.br/2007/11/' /> 
+	<link rel='archives' title='October 2007' href='http://blog.caelum.com.br/2007/10/' /> 
+	<link rel='archives' title='September 2007' href='http://blog.caelum.com.br/2007/09/' /> 
+	<link rel='archives' title='August 2007' href='http://blog.caelum.com.br/2007/08/' /> 
+	<link rel='archives' title='July 2007' href='http://blog.caelum.com.br/2007/07/' /> 
+	<link rel='archives' title='June 2007' href='http://blog.caelum.com.br/2007/06/' /> 
+	<link rel='archives' title='May 2007' href='http://blog.caelum.com.br/2007/05/' /> 
+	<link rel='archives' title='April 2007' href='http://blog.caelum.com.br/2007/04/' /> 
+	<link rel='archives' title='March 2007' href='http://blog.caelum.com.br/2007/03/' /> 
+	<link rel='archives' title='February 2007' href='http://blog.caelum.com.br/2007/02/' /> 
+	<link rel='archives' title='January 2007' href='http://blog.caelum.com.br/2007/01/' /> 
+	<link rel='archives' title='December 2006' href='http://blog.caelum.com.br/2006/12/' /> 
+	<link rel='archives' title='November 2006' href='http://blog.caelum.com.br/2006/11/' /> 
+	<link rel='archives' title='October 2006' href='http://blog.caelum.com.br/2006/10/' /> 
+	<link rel='archives' title='September 2006' href='http://blog.caelum.com.br/2006/09/' /> 
+	<link rel='archives' title='August 2006' href='http://blog.caelum.com.br/2006/08/' /> 
+	<link rel='archives' title='July 2006' href='http://blog.caelum.com.br/2006/07/' /> 
+	<link rel='archives' title='April 2006' href='http://blog.caelum.com.br/2006/04/' /> 
+	<link rel='archives' title='March 2006' href='http://blog.caelum.com.br/2006/03/' /> 
+		<link rel="alternate" type="application/rss+xml" title="blog.caelum.com.br &raquo; Então você quer ser um arquiteto Java? Comments Feed" href="http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/feed/" /> 
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.caelum.com.br/xmlrpc.php?rsd" /> 
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.caelum.com.br/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='blog.caelum.com.br' href='http://blog.caelum.com.br/' /> 
+<link rel='start' title='Blog da Caelum finalmente está no ar!' href='http://blog.caelum.com.br/2006/08/14/ola/' /> 
+<link rel='prev' title='Arredondamento no Java: do double ao BigDecimal' href='http://blog.caelum.com.br/2010/07/15/arredondamento-no-java-do-double-ao-bigdecimal/' /> 
+<link rel='next' title='Possibilidades de design no uso do seu Generic DAO' href='http://blog.caelum.com.br/2010/07/26/possibilidades-de-design-no-uso-do-seu-generic-dao/' /> 
+<meta name="generator" content="WordPress 3.0.1" /> 
+<link rel='shortlink' href='http://blog.caelum.com.br/?p=2808' /> 
+<style type="text/css">.addtoany_subscribe img{border:0;}</style>
+<style type="text/css">
+	.addtoany_share_save_container{margin:16px 0;}
+	ul.addtoany_list{
+		display:inline;
+		list-style-type:none;
+		margin:0 !important;
+		padding:0 !important;
+		text-indent:0 !important;
+	}
+	ul.addtoany_list li{
+		background:none !important;
+		border:0;
+		display:inline !important;
+		line-height:32px;		list-style-type:none;
+		margin:0 !important;
+		padding:0 !important;
+	}
+	ul.addtoany_list li:before{content:"";}
+	ul.addtoany_list li a{padding:0 9px;}
+	ul.addtoany_list img{
+		float:none;
+		border:0;
+		margin:0;
+		padding:0;
+		vertical-align:middle;
+	}
+	ul.addtoany_list a img{
+		opacity:.6;
+		-moz-opacity:.6;
+		filter:alpha(opacity=60);
+	}
+	ul.addtoany_list a:hover img, ul.addtoany_list a.addtoany_share_save img{
+		opacity:1;
+		-moz-opacity:1;
+		filter:alpha(opacity=100);
+	}
+	a.addtoany_share_save img{border:0;width:auto;height:auto;}    </style>
+ 
+<!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[303,377] --> 
+<meta name="description" content="Durante o atual processo de revisão do livro de Arquitetura e Design de Software, discussões apareceram sobre o termo arquiteto. Antes de definir o que faz um" /> 
+<link rel="canonical" href="http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/" /> 
+<!-- /all in one seo pack --> 
+<link rel="stylesheet" type="text/css" href="http://blog.caelum.com.br/wp-content/plugins/highlight-source-pro/all.css" /><!--[if IE]><link rel="stylesheet" type="text/css" href="http://blog.caelum.com.br/wp-content/plugins/highlight-source-pro/ie.css" /><![endif]-->	<script type="text/javascript">var SEM_ANALYTICS = true;</script> 
+</head> 
+ 
+<body class="home"> 
+	<div id="caelumheader"> 
+	  <div class="header"> 
+		<h1><a href="http://www.caelum.com.br/" class="logocaelum"> 
+			<img src="http://www.caelum.com.br/imagens/base/caelum-ensino-inovacao.png" 
+			  alt="Caelum | Ensino e Inovação - Cursos de Java, Scrum, Ruby on Rails"/> 
+		</a></h1> 
+ 
+		<ul> 
+			<li> 
+				<h2><a href="http://blog.caelum.com.br">Blogs</a></h2> 
+				<ul> 
+					<li><a href="http://blog.caelum.com.br/agile/">Agile</a></li> 
+					<li><a href="http://blog.caelum.com.br/">Geral</a></li> 
+				</ul> 
+			</li> 
+			<li> 
+				<h2><a href="http://blog.caelum.com.br">Arquivos</a></h2> 
+				<ul> 
+						<li><a href='http://blog.caelum.com.br/2010/' title='2010'>2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2009/' title='2009'>2009</a></li> 
+	<li><a href='http://blog.caelum.com.br/2008/' title='2008'>2008</a></li> 
+	<li><a href='http://blog.caelum.com.br/2007/' title='2007'>2007</a></li> 
+	<li><a href='http://blog.caelum.com.br/2006/' title='2006'>2006</a></li> 
+				</ul> 
+			</li> 
+			<li> 
+				<h2><a href="http://www.caelum.com.br/">A Caelum</a></h2> 
+				<ul> 
+					<li><a href="http://www.caelum.com.br/">Home Caelum</a></li> 
+					<li><a href="http://www.caelum.com.br/cursos/">Nossos cursos</a></li> 
+					<li><a href="http://www.caelum.com.br/servicos/">Consultoria & Coaching</a></li> 
+					<li><a href="http://www.caelum.com.br/empresa/">Sobre a Caelum</a></li> 
+					<li><a href="http://www.caelum.com.br/contato/?sobre=BLOG">Contato</a></li> 
+				</ul> 
+			</li> 
+			<li> 
+				<h2><a href="http://www.caelum.com.br/apostilas/">Apostilas</a></h2> 
+			</li> 
+			<li> 
+				<h2><a href="http://blog.caelum.com.br">Comunidade</a></h2> 
+				<ul> 
+					<li><a href="http://www.caelum.com.br/apostilas/">Apostilas abertas</a></li> 
+					<li><a href="http://blog.caelum.com.br">Blog da Caelum</a></li> 
+					<li><a href="http://www.caelum.com.br/caelummock/">CaelumMock</a></li> 
+					<li><a href="http://www.guj.com.br">GUJ</a></li> 
+					<li><a href="http://www.caelum.com.br/opensource/">Open source</a></li> 
+				</ul> 
+			</li> 
+ 
+			<li> 
+				<h2><a href="http://www.caelum.com.br/contato/">Contato</a></h2> 
+			</li> 
+		</ul> 
+ 
+ 
+<ul id="menu-topo"> 
+		<li><a href="http://blog.caelum.com.br">Blog da Caelum</a></li> 
+		<li><a href="http://www.caelum.com.br/newsletter/">Newsletter</a></li> 
+	</ul> 
+ 
+	</div> 
+</div> 
+<hr class="separador"/> 
+ 
+<div id="main"> 
+ 
+<div id="banners"> 
+		<div class="banner"> 
+			<img alt="Bem vindo ao Blog da Caelum" src="http://www.caelum.com.br/imagens/home/header-home.jpg"/> 
+			<div class="texto"> 
+				<h2>Bem vindo ao Blog da Caelum!</h2> 
+				<p>O blog dos desenvolvedores da Caelum</p> 
+			</div> 
+		</div> 
+ 
+</div> 
+<div id="content"> 
+<!-- end header --> 
+ 
+	<div id="content" class="narrowcolumn"> 
+ 
+	
+		
+			<div class="post" id="post-2808"> 
+				<h2><a href="http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/" rel="bookmark" title="Permanent Link to Então você quer ser um arquiteto Java?">Então você quer ser um arquiteto Java?</a></h2> 
+				<small>Por Paulo Silveira em 21/07/10 </small> 
+ 
+				<div class="entry"> 
+					<p>Durante o atual processo de revisão do livro de <a href="http://www.arquiteturajava.com.br">Arquitetura e Design de Software</a>, discussões apareceram sobre <a href="http://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf">o termo <strong>arquiteto</strong></a>. Antes de definir o que faz um arquiteto, há o termo <strong>arquitetura</strong>. </p> 
+<div id="attachment_2942" class="wp-caption aligncenter" style="width: 511px"><a href="http://blog.caelum.com.br/wp-content/uploads/2010/07/neo-architect.jpg"><img src="http://blog.caelum.com.br/wp-content/uploads/2010/07/neo-architect.jpg" alt="" title="neo-architect" width="501" height="216" class="size-full wp-image-2942" /></a><p class="wp-caption-text">Quem é o arquiteto? Aquele que senta sozinho e toma todas as grandes decisões?</p></div> 
+<p><strong>O que é a arquitetura de uma aplicação?</strong><br /> 
+Uma pergunta difícil de responder. Entre as definições mais antigas, Roy Fielding possui um bom texto no primeiro capítulo de sua <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/software_arch.htm">dissertação de doutorado</a>. O Instituto de Engenharia de Software da Universidade de Carnegie Mellon <a href="http://www.sei.cmu.edu/architecture/start/definitions.cfm">apresenta diferentes definições</a>, <a href="http://www.sei.cmu.edu/architecture/start/bibliographicdefs.cfm">algumas clássicas</a> e bastante conhecidas, como &#8220;<em>arquitetura é a estrutura do sistema, composta de componentes, as propriedades que são visíveis externamente desses componentes e o relacionamento entre eles</em>&#8220;. </p> 
+<p><a href="http://martinfowler.com/articles/designDead.html#id21865">Nas palavras de Martin Fowler</a>, &#8220;<em>o termo arquitetura envolve a noção dos principais elementos do sistema, <strong>as peças que são difíceis de mudar</strong>. Uma fundação na qual o resto precisa ser construído</em>&#8220;. Fowler <a href="http://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf">reformula sua definição de arquitetura</a> e a define como &#8220;<em>as peças que as pessoas acham que é difícil de mudar</em>&#8220;.  No mesmo artigo Ralph Johnson, do GoF, diz que arquitetura &#8220;<em>é o conjunto de decisões de design que gostaríamos de ter feito no começo do projeto</em>&#8221; e termina com uma definição mais abrangente: &#8220;<em>arquitetura é tudo aquilo que importa</em>&#8220;. Com tantas definições, talvez seja mais fácil diferenciarmos design de arquitetura.</p> 
+<p><strong>Qual é a diferença de design e arquitetura de software?</strong><br /> 
+Aqui também temos uma resposta clássica na literatura: a arquitetura é responsável pelos requisitos não-funcionais, e o design pelos funcionais. Mas parece que essa distinção não é tão clara assim para muitos outros autores.</p> 
+<p><a href="http://www.ibm.com/developerworks/java/library/j-eaed10/index.html#distinguishing">Neal Ford apresenta uma distinção</a> simples, realçando que o design é feito em cima do que foi decidido pela arquitetura, e por isso o que faz parte da arquitetura é mais difícil de mudar. Devemos minimizar as peças que dificultam mudanças do nosso design, mas é impossível eliminar todas, além de que flexibilidade sempre vem a um custo de complexidade.</p> 
+<p><center><a href="http://blog.caelum.com.br/wp-content/uploads/2010/07/design.jpg"><img src="http://blog.caelum.com.br/wp-content/uploads/2010/07/design-150x150.jpg" alt="" title="design" width="150" height="150" class="aligncenter size-thumbnail wp-image-2966" /></a></center></p> 
+<p>É difícil criar um distinção maior entre os dois. No livro Patterns of Enterprise Application Architecture, Fowler diz que &#8220;<em>alguns dos padrões nesse livro  podem ser chamados arquiteturais, já que representam decisões importantes sobre essas partes; outros são mais sobre design e te ajudam a implementar essa arquitetura. Eu não faço nenhuma tentativa forte de separar esses dois, já que é <strong>o que é arquitetural ou não é subjetivo</strong></em>&#8220;.</p> 
+<p><strong>O arquiteto deve saber programar na plataforma em questão?</strong><br /> 
+Sem dúvida. Cada vez mais vemos que o <a href="http://www.slideshare.net/pcalcado/expressive-design-in-20-minutes">design e a implementação devem ser trabalhados juntos</a>. A imagem de um <a href="http://www.infoq.com/presentations/agilists-and-architects">arquiteto distante sem profundo conhecimento técnico que apenas toma as grandes decisões</a> ficou pra trás: conhecimento técnico e a capacidade de liderança são as características fundamentais. </p> 
+<p>Mais do que querer ser o poderoso arquiteto que apenas despacha ordens e toma todas as grandes decisões, cada vez mais enxergamos que o caminho é ser o líder que incentiva essa tomada de decisão, além de ser um exímio  programador. Parafraseando mais uma vez Martin Fowler, &#8220;<em>&#8230;o arquiteto deve ser como um guia&#8230; que é um experiente e capacitado membro da equipe que ensina aos outros a melhor se virarem, ainda assim ele está sempre lá para as partes mais complicadas</em>&#8220;. </p> 
+<p>Vale lembrar que <a href="http://norvig.com/21-days.html">precisamos de mais de 10 mil horas, ou 10 anos, para dominar uma linguagem</a>.</p> 
+<div class="addtoany_share_save_container"><ul class="addtoany_list"><li><a class="a2a_dd addtoany_share_save" href="http://www.addtoany.com/share_save?linkurl=http%3A%2F%2Fblog.caelum.com.br%2F2010%2F07%2F21%2Fentao-voce-quer-ser-um-arquiteto-java%2F&amp;linkname=Ent%C3%A3o%20voc%C3%AA%20quer%20ser%20um%20arquiteto%20Java%3F"><img src="http://blog.caelum.com.br/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share/Bookmark"/></a></li></ul></div>				</div> 
+ 
+				<p class="postmetadata">Tags: <a href="http://blog.caelum.com.br/tag/arquitetura/" rel="tag">arquitetura</a>, <a href="http://blog.caelum.com.br/tag/design/" rel="tag">design</a>, <a href="http://blog.caelum.com.br/tag/fowler/" rel="tag">fowler</a><br /> Postado em <a href="http://blog.caelum.com.br/category/principal/arquitetura/" title="View all posts in arquitetura" rel="category tag">arquitetura</a>, <a href="http://blog.caelum.com.br/category/caelum/" title="View all posts in caelum" rel="category tag">caelum</a>, <a href="http://blog.caelum.com.br/category/integracao/" title="View all posts in integração" rel="category tag">integração</a>, <a href="http://blog.caelum.com.br/category/java/" title="View all posts in java" rel="category tag">java</a> | <a class="post-edit-link" href="http://blog.caelum.com.br/wp-admin/post.php?post=2808&amp;action=edit" title="Edit Post">Editar</a> |   <a href="http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/#comments" title="Comment on Então você quer ser um arquiteto Java?">32 Coment&aacute;rios &#187;</a></p> 
+			</div> 
+			
+<h2 id="comments">32 Comments	<a href="#postcomment" title="Leave a comment">&raquo;</a> 
+</h2> 
+ 
+<ol id="commentlist"> 
+ 
+	<li id="comment-67031"> 
+	<img alt='' src='http://1.gravatar.com/avatar/14ff01a4734a48a3e69312918ce18769?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Muito legal, me trouxe boas lembranças das aulas de Arquitetura e Design de Projetos Java ministradas pelo Sérgio Lopes.</p> 
+<p>abs<br /> 
+Lennon</p> 
+	<p><cite>Comment by Lennon Manchester &#8212; July 21, 2010 @ <a href="#comment-67031">5:57 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67031" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67032"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Valeu Lenon. O Rafael Ferreira me mandou uma outra observação boa: assim como o termo &#8220;arquiteto&#8221; é bastante questionável, o termo &#8220;arquiteto Java&#8221; é mais questionável ainda.  Creio que o resumo da ópera é ter de dominar bem uma plataforma para poder tomar decisões grandes nela, independente da tecnologia.</p> 
+<p>Vale outra citação, dessa vez ao Spoelsky: &#8220;<em>pessoas de todo o mundo estão<br /> 
+constantemente criando aplicações web usando .NET, usando Java e usando PHP.<br /> 
+Nenhuma delas está falhando por causa da escolha da tecnologia</em>.</p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; July 21, 2010 @ <a href="#comment-67032">6:06 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67032" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67033"> 
+	<img alt='' src='http://1.gravatar.com/avatar/b4bf86291eb809aec54d793d1bfc4d85?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Parabéns Paulo. </p> 
+<p>Muito Legal. Realmente há muita confusão nesses conceitos que parecem significar tantas coisas diferentes para diferentes pessoas. Bacana o artigo. Ótimas referências. </p> 
+<p>Abraço.</p> 
+	<p><cite>Comment by <a href='http://blog.andrefaria.com' rel='external nofollow' class='url'>André Faria Gomes</a> &#8212; July 21, 2010 @ <a href="#comment-67033">7:24 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67033" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67034"> 
+	<img alt='' src='http://1.gravatar.com/avatar/5a8095b6b9b59ebe2001ddfccc86cbe7?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Muito bom, já tinha visto você palestrando sobre isto no caelumday e hoje pude relembrar algumas coisas e buscar mais nas referências.<br /> 
+valeu <img src='http://blog.caelum.com.br/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p> 
+	<p><cite>Comment by Rodrigo Ramalho &#8212; July 21, 2010 @ <a href="#comment-67034">8:03 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67034" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67035"> 
+	<img alt='' src='http://1.gravatar.com/avatar/9ba395435487e85de7df942b77a75674?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>O arquiteto toma as decisões importantes e deve conhecer a fundo a linguagem escolhida. Ok!</p> 
+<p>Então o Consultor é um arquiteto? Seria sinônimos ou ainda sim tem diferenças?</p> 
+	<p><cite>Comment by <a href='http://wbotelhos.com' rel='external nofollow' class='url'>Washington Botelho</a> &#8212; July 21, 2010 @ <a href="#comment-67035">9:32 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67035" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67037"> 
+	<img alt='' src='http://0.gravatar.com/avatar/e1560cdb9697a49da3d020163900cb03?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Falou muito e não disse nada.</p> 
+	<p><cite>Comment by Jefferson B. &#8212; July 21, 2010 @ <a href="#comment-67037">9:50 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67037" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67038"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>@ Rodrigo @Andre obrigaod!</p> 
+<p>@Washigton Na minha opinião, um consultor pode tomar decisões arquiteturais, e o papel do líder técnico da equipe deve ser incentivar e capacitar os consultores/desenvolvedores/programadores da equipe a tomarem também essas decisões.</p> 
+<p>@Jefferson essa era a intenção: deixar cada um tirar suas conclusões, baseado nas referências que passei. De qualquer maneira, acho que o último parágrafo fala pouco e diz tudo: &#8220;…o arquiteto deve ser como um guia… que é um experiente e capacitado membro da equipe que ensina aos outros a melhor se virarem, ainda assim ele está sempre lá para as partes mais complicadas“.</p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; July 21, 2010 @ <a href="#comment-67038">9:55 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67038" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67039"> 
+	<img alt='' src='http://0.gravatar.com/avatar/aeb1702aa067dd798c228c0b992ae377?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Paulo, primeiramente meus sinceros parabéns pela abordagem e pela assertividade, o post esta 10!</p> 
+	<p><cite>Comment by Elton Vianna &#8212; July 21, 2010 @ <a href="#comment-67039">10:13 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67039" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67040"> 
+	<img alt='' src='http://0.gravatar.com/avatar/a824d178e3f0919df955c290db421b2b?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Gostei do tema desse post! Conforme fui prestando consultoria encontrei o termo arquiteto de solução focado em interações e desenho de soluções de software, arquiteto de aplicação mas baixo nível como codificação, aplicação de patterns, escolha de frameworks, arquiteto organizacional mais focado no ROI da empresa, aplicando ITIL, criando contrato e modelos de desenvolvimento&#8230; E ai vai&#8230;. =-D &#8230;  No fundo somos todos programersss =-D uhh Uhh.</p> 
+	<p><cite>Comment by <a href='http://www.codecompany.com.br' rel='external nofollow' class='url'>Sergio kubota</a> &#8212; July 21, 2010 @ <a href="#comment-67040">10:44 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67040" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67041"> 
+	<img alt='' src='http://0.gravatar.com/avatar/2655d8b8bb7fbe4a07252eb3c5f1db26?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Acho que o esse post foi derivado de uma sugestão minha no GUJ kkkkk Mas se não for tudo bem.<br /> 
+Estou com um conceito novo agora. Se me perguntarem qual a diferença entre projeto e arquitetura, eu direi &#8220;Não se importe com isso. O limiar é subjetivo.&#8221;</p> 
+	<p><cite>Comment by Fábio &#8212; July 21, 2010 @ <a href="#comment-67041">11:52 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67041" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67045"> 
+	<img alt='' src='http://1.gravatar.com/avatar/d709f5d1baf2639a684ffb1b161c5a52?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Paulo, como sempre dando aula sobre TI e de uma forma muito ponderada, sem impor opiniões, mas sim dividindo o conhecimento. Parabéns!</p> 
+<p>Estou há 11 anos trabalhando com TI (10 de Java) e cada vez mais entendo que o conhecimento para um &#8220;arquiteto&#8221; é o mais abrangente possível.</p> 
+<p>Cada um entende o termo arquiteto como vê e conhece o mundo por ai. Quando se está inserido apenas no mundo Java, onde Apache, Tomcat e BD são seu mundo, dominar isso significa ser arquiteto. Quando extrapolamos os limites de nosso meio começamos a ver que há um mundo bem maior por ai.</p> 
+<p>Aplicações distribuídas, redes, clusters, nuvem, grids, alta disponibilidade, segurança, mainframe, SOA etc. Um infinito de requisitos que ampliam as funções e conhecimentos de um arquiteto.</p> 
+<p>Cabe aí ao profissional a humildade de entender que o mundo é bem maior e desconhecido do que pensamos.</p> 
+	<p><cite>Comment by <a href='http://www.refscall.com.br' rel='external nofollow' class='url'>Daniel Destro</a> &#8212; July 22, 2010 @ <a href="#comment-67045">8:56 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67045" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67046"> 
+	<img alt='' src='http://0.gravatar.com/avatar/4cc5cc71fc6bca4bd9ef7ec85380d33d?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Show de bola esse artigo!! Parabéns!!</p> 
+<p>o paragrafo final então..sem comentários!! hehe</p> 
+	<p><cite>Comment by <a href='http://twitter.com/rodrigoma' rel='external nofollow' class='url'>Rodrigo Monteiro</a> &#8212; July 22, 2010 @ <a href="#comment-67046">9:31 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67046" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67048"> 
+	<img alt='' src='http://0.gravatar.com/avatar/6590a36c799921a215249f3e26d7b5b7?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Muito bom o Post.</p> 
+<p>   Gostei particularmente do último paragrafo, sempre achei muito estranha a idéia de um arquiteto que não fosse um ótimo programador.</p> 
+	<p><cite>Comment by Ronualdo &#8212; July 22, 2010 @ <a href="#comment-67048">2:49 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67048" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67049"> 
+	<img alt='' src='http://1.gravatar.com/avatar/3b3eaf8b3f9c7b8ac8b14c84e1af591a?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Gostaria de saber q dia msm vai ser lançado este livro de arquitetura e design, desde o ano passado falam q ele vai ser lançado&#8230;.<br /> 
+estou ansioso por este livro&#8230;.</p> 
+	<p><cite>Comment by valfrido &#8212; July 22, 2010 @ <a href="#comment-67049">3:35 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67049" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67052"> 
+	<img alt='' src='http://1.gravatar.com/avatar/d0c212a14ee4b93b855c8b083a61e371?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Muito bom, Paulo!</p> 
+<p>No livro &#8220;The mythical man-month&#8221;, o Fred Brooks fala muito que a arquitetura idealmente deveria ser realizada por uma pessoa (ou poucas pessoas) para preservar a &#8220;integridade conceitual&#8221; do produto. Neste caso, ele parece usar o termo &#8216;arquitetura&#8217; para se referir ao produto em si, o que é visível para o usuário. Seria pensar na arquitetura num nível mais alto.</p> 
+<p>abraços</p> 
+	<p><cite>Comment by <a href='http://alexandregazola.wordpress.com' rel='external nofollow' class='url'>Alexandre Gazola</a> &#8212; July 22, 2010 @ <a href="#comment-67052">7:55 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67052" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67053"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>agradeço os comentários! realmente é uma condensação de pensamentos sem expressar minha opinião, mas estou de acordo com o último paragrafo do Fowler também. </p> 
+<p>@Alexandre: bem lembrado do Brooks. mais ainda, no novo livro dele (e na palestra que ele deu em São Paulo) ele falou muito de que essa visão geral deve ser feita por uma ou duas pessoas. Ele foi mais além e disse que o melhor seria se fossem duas pessoas e deu zilhares de exemplos.</p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; July 22, 2010 @ <a href="#comment-67053">7:58 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67053" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67065"> 
+	<img alt='' src='http://0.gravatar.com/avatar/2f5c832a76a5b7c8cdb983232eaa6b92?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Muito bom. Bastante esclarecedor.</p> 
+<p>Parabens Paulo.</p> 
+	<p><cite>Comment by <a href='http://quebrandoparadigmas.wordpress.com' rel='external nofollow' class='url'>Wagner</a> &#8212; July 23, 2010 @ <a href="#comment-67065">12:26 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67065" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67066"> 
+	<img alt='' src='http://1.gravatar.com/avatar/1be864209a196c598d231d104392219a?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Bom post, tema sempre abordado em discussões técnicas.<br /> 
+Embora eu não concorde com esse cargo, como muitos autores que citou.<br /> 
+O que vejo no mercado são 3 tipos de arquitetos:<br /> 
+1- Arquiteto de Soluções Teórico;<br /> 
+Esse é o profissional que trabalhou como desenvolvedor em alguns projetos porém evoluiu acha que evoluiu mais rápido e começou a estudar N metodologias, patterns, linguagens, sem ter aplicado na prática a maioria delas e é o senhor da verdade. É o cara que fica atrás da mesa ditando o que se deve fazer porém quando coloca um código na sua frente para ele resolver, sempre arruma uma desculpa (até chega a suar frio) e a banana acaba ficando na mão do desenvolvedor.<br /> 
+2- Arquiteto Desenvolvedor Senior;<br /> 
+Esse é o profissional que trabalhou como desenvolvedor em vários projetos, e chegou em um nivel de senioridade legal e decidiu se intitular como arquiteto, procurando oportunidades de arquiteto no mercado, pois existe aos montes para esse tipo de profissional, pois empresas não querem pagar pelos verdadeiros especialistas.<br /> 
+3- Arquiteto de Soluções Técnico;<br /> 
+Esse é o profissional que trabalhou a vida inteira desenvolvendo, em vários linguagens, aplicando patterns diversos, tecnologias, etc. Devido a sua experiência e vivência ele é realmente um especialista em tecnologia.</p> 
+<p>Não acho certo intitularem arquitetos, mas em funções como:</p> 
+<p>1- Professor Didático;<br /> 
+2- Desenvolvedor Senior;<br /> 
+3- Especialista em Soluções.</p> 
+<p>=P</p> 
+	<p><cite>Comment by <a href='http://inversion-of-control.blogspot.com/' rel='external nofollow' class='url'>Rafael Duque Estrada</a> &#8212; July 23, 2010 @ <a href="#comment-67066">12:29 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67066" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67105"> 
+	<img alt='' src='http://0.gravatar.com/avatar/6d7cf4f1e3305d86b484c5a0aa2839ff?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Excelente post!<br /> 
+quando sai o livro???</p> 
+	<p><cite>Comment by thiago &#8212; July 24, 2010 @ <a href="#comment-67105">11:49 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67105" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67106"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>@valfrido @thiago o livro sai finalmente em outubro! deu um trabalhão mas conseguimos.</p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; July 24, 2010 @ <a href="#comment-67106">11:58 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67106" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67205"> 
+	<img alt='' src='http://1.gravatar.com/avatar/d40baac540deff0ea9cb3490a708af40?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Um arquiteto com tantas qualificações não acaba sendo um Engenheiro de Software?</p> 
+	<p><cite>Comment by Alexandre &#8212; July 29, 2010 @ <a href="#comment-67205">6:15 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67205" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67225"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>@Alexandre&#8230; é esse tipo de duvida de nomenclatura que o Fowler nao quer entrar muito na discussão, por ser dificil dar nomes aos bois, e talvez não valer muito a pena. Acho que essa pessoa, com todas essas qualidades, é alguém que possamos chamar de &#8220;desenvolvedor experiente&#8221;.</p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; July 30, 2010 @ <a href="#comment-67225">4:10 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67225" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67243"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Aqui tem um outro artigo do Joel que se posiciona bastante em relação a &#8220;arquitetos que não programam&#8221; que ele chama de  &#8220;arquitetos astronauta&#8221;:<br /> 
+<a href="http://www.joelonsoftware.com/articles/fog0000000018.html" rel="nofollow">http://www.joelonsoftware.com/articles/fog0000000018.html</a></p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; July 31, 2010 @ <a href="#comment-67243">5:49 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67243" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67350"> 
+	<img alt='' src='http://0.gravatar.com/avatar/288ab8d2154ba5140112355bc6fdad4d?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Muito bom este artigo, pois foi bem superficial e deixou com que as pessoas refletissem sobre o assunto.</p> 
+<p>Porém achei bem legal a pergunta do @Washigton e a resposta do @Paulo Silveira, pois o que mais vejo por ai, são arquitetos com perfil de desenvolvedor/consultor e consultores com papéis de arquitetos/gerente de projetos, e por ai vai&#8230;.</p> 
+<p>A troca de papéis na empresas/consultorias são muito constantes e nem sempre isso deixa o pessoal satisfeito, lógico que guardadas as devidas proporções.</p> 
+<p>Infelizmente existem pessoas subutilizadas em seus projetos e as vezes a própria pessoa não tem ciência da sua capacidade. Muito problemático isso!!!</p> 
+<p>Mas ai já entramos em outro ponto que é o da auto análise e gestão das próprias metas/objetivos das pessoais.</p> 
+<p>Bom é isso ai pessoal, estou feliz com meu cargo hoje e escrevi isto só porque vejo essas trapalhadas por ai e o tema é bem amplo. OK?</p> 
+<p>Abss e T+.</p> 
+	<p><cite>Comment by Vinícius Oliveira &#8212; August 6, 2010 @ <a href="#comment-67350">11:10 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67350" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67353"> 
+	<img alt='' src='http://1.gravatar.com/avatar/d934b868fa9456d89a3fd3a659c51014?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Após 24 anos em TI, e mais de 30 mil horas de &#8220;voo&#8221;, sempre me pergunto se sou de fato um arquiteto. Os outros acham que sou, pelo que fiz, faço e farei. Arquiteto ou arquitetura, é uma essência conceitual, voltado para suportar construções e modelos; ela é algo pensada e modelada, para não ter retorno, raramente se altera esse conceito, sob pena de desmoronamento da engenharia.</p> 
+	<p><cite>Comment by <a href='http://www.ziben.com.br' rel='external nofollow' class='url'>Claudio Cardozo</a> &#8212; August 6, 2010 @ <a href="#comment-67353">11:36 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67353" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67365"> 
+	<img alt='' src='http://1.gravatar.com/avatar/dbdd67a54bab9b79158164f122573a9e?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>&#8220;Martin Fowler, &#8216;…o arquiteto deve ser como um guia… que é um experiente e capacitado membro da equipe que ensina aos outros a melhor se virarem, ainda assim ele está sempre lá para as partes mais complicadas&#8217;. &#8221;</p> 
+<p>Sinceramente sou fã de Fowler, e o considero um otimo profissional e educador (quando leio seus livros), mas como auto intitulá-se, é as vezes um falastrão! </p> 
+<p>Devemos aprender a diferenciar conceitos de &#8220;filosofias&#8221; ou mesmo &#8220;poesias&#8221; nas frases de determinados autores, que foi o caso do Fowler agora. Outro exemplo: a definição que o Silveira destacou sobre arquitetura, principalmente: “arquitetura é tudo aquilo que importa“ é muito poético, lindo para profissionais desta área, mas de nenhuma maneira conceitua realmente. Não é realmente uma definição! Aliás, esta é uma definição? Isto é soa tão poético, quanto afirmar ao Programador que este é o profissional mais importante do mundo atualmente, que o Médico é um deus de carne e osso, que o Padeiro é o profissional que produz nosso pão de cada dia e sem ele não haveria um bom dia.</p> 
+<p>Conceitos envolvem imparcialidades e definem características de algo ou &#8220;alguém&#8221;, que ao serem citados levá-nos logo a pensar neste algo ou &#8220;alguém&#8221;. </p> 
+<p>Pelos capitulos demos o livro parace ser muito bom, mas definições deste tipo não podem ser passadas adiante, ou então, não sabem o que é um &#8220;Arquiteto de uma aplicação&#8221; ainda e não podem lançar este livro até descobrir! (Desculpe-me Silveira se parecer grosseiro, mas como uma pessoa que atualmente é muito considerada na comunidade, este tipo de comentário não é mais aceito. Isto fica para o ínicio da carreira onde falamos qualquer coisa e fica por isto mesmo, pois pouca gente nos conhece. O que não é o seu caso.)</p> 
+<p>Tenha certeza de que você não conceituou &#8220;arquitetura de uma aplicação&#8221; neste post!<br /> 
+Se considera este conceito realmente importante corrijá-o, defina-o corretamente sem poesias, pois podem servir de base para estudantes e pesquisadores.</p> 
+	<p><cite>Comment by Carlos Shumam &#8212; August 7, 2010 @ <a href="#comment-67365">8:27 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67365" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67366"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>@Carlos, agradeço o comentário. É um comentário forte mas de maneira alguma grosseiro.</p> 
+<p>Creio que o objetivo do post é que não ficou claro: incitar cada desenvolvedor para que perceba o quão íntima é a relação de arquitetura, design e código, e de que todos estão muito ligados. Por isso o post começa discutindo arquitetura e passa para arquitetura X design, até chegar em código.</p> 
+<p>O livro é mais técnico, não entra em questões conceituais. No livro mostramos trade offs de uma técnica com outra, de um framework com outro, etc. </p> 
+<p>Sobre não ter conceituado arquitetura, você tem razão, não ficou expressa minha opinião (você não foi o único a criticar isso, recebi diversos emails também). Acho curioso que gerou tanta polêmica sem eu dar minha opinião pessoal&#8230; creio que se tivesse dado seria mais barulhento. Na sua frase &#8220;não sabem o que é um Arquiteto de uma aplicação&#8221;, infere-se de que há uma e única definição. Eu não concordo, e acho &#8220;arquiteto de aplicação&#8221; um termo vago para ser usado dessa forma, um buzzword, que cada um acaba puxando para a situação da sua empresa e da sua aplicação. Na minha opinião, dar uma única definição a &#8220;arquiteto de aplicação&#8221; vai apenas criar uma outra figura de linguagem, no mesmo sentido que você utilizou o termo &#8220;poético&#8221; (e concordo com você aqui).</p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; August 7, 2010 @ <a href="#comment-67366">9:14 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67366" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67753"> 
+	<img alt='' src='http://1.gravatar.com/avatar/578110a9593a483034272ff835629312?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Olá Pessoal, ótimo post.</p> 
+<p>Nossa que amplitude!<br /> 
+<a href="http://en.wikipedia.org/wiki/Enterprise_architecture" rel="nofollow">http://en.wikipedia.org/wiki/Enterprise_architecture</a></p> 
+<p>Vamos abrir o leque! <img src='http://blog.caelum.com.br/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p> 
+	<p><cite>Comment by <a href='http://brunotaboada.blogspot.com' rel='external nofollow' class='url'>bruno taboada</a> &#8212; September 1, 2010 @ <a href="#comment-67753">4:49 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67753" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67954"> 
+	<img alt='' src='http://0.gravatar.com/avatar/e52d9e41f77f3e93863efacc7d9e158e?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Este tema ficou ainda mais claro depois de sua paletra no<br /> 
+QCON 2010.<br /> 
+Ao meu ver você foi muito feliz e mostrou com muita clareza e propriedade,<br /> 
+através de exemplos simples, os principais conceitos envolvidos.<br /> 
+Uma aula bastante objetiva.<br /> 
+Sugiro disponibilizar o vídeo com sua apresentação no QCON<br /> 
+tão logo seja possível.</p> 
+<p>abs,<br /> 
+Garcia.</p> 
+	<p><cite>Comment by Alexandre Garcia &#8212; September 13, 2010 @ <a href="#comment-67954">2:25 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67954" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67971"> 
+	<img alt='' src='http://0.gravatar.com/avatar/ad592473d0aca6aa9321f6abf70b8b73?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>Eu já sou meio radical. Acho que o kra pra ser considerado Arquiteto Java tem que ter a certificação Java EE 5 Enterprise Architect da Oracle/Sun.</p> 
+	<p><cite>Comment by Edu &#8212; September 14, 2010 @ <a href="#comment-67971">11:05 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67971" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67976"> 
+	<img alt='' src='http://0.gravatar.com/avatar/c621f1575c6b408ed20d110b86873357?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>@Alexandre Obrigado! Vou fazer um novo post sobre o assunto para deixar mais clara minha própria opinião. </p> 
+<p>@Edu essa é realmente uma opinião que ninguém da Caelum compartilha. A certificação não tem como provar algo assim</p> 
+	<p><cite>Comment by <a href='http://www.paulo.com.br/' rel='external nofollow' class='url'>Paulo Silveira</a> &#8212; September 14, 2010 @ <a href="#comment-67976">1:50 pm</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67976" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+	<li id="comment-67985"> 
+	<img alt='' src='http://0.gravatar.com/avatar/ad592473d0aca6aa9321f6abf70b8b73?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />	<p>@Paulo, eu sei que é apenas um título, mas o mundo é feito de títulos não? para a pessoa ser advogado tem que ter o título da OAB, para ser médico tem que ter o diploma de medicina, PhD, Doutorado etc. O que acontece é que na área de TI as coisas não seguem um padrão.<br /> 
+Eu sei que tem muitos kras bons sem certificacação nenhuma, mas temos que valorizar quem estudou e se esforçou para ter uma certificação dessas. Existem alguns contratos públicos que só são feitos se tiver pelo menos um profissional certificado Java EE 5 Enterprise Architect no projeto.<br /> 
+Realmente eu fui muito radical, mas o kra para ser considerado arquiteto teria que ter uns 8 anos com Java e um diploma universitário, no mínimo. Agora o kra ser um moleque de 18a,19a, não ter diploma universitário e se considerar arquiteto é uma grande piada.</p> 
+	<p><cite>Comment by Edu &#8212; September 15, 2010 @ <a href="#comment-67985">11:35 am</a></cite>  |<a class="comment-edit-link" href="http://blog.caelum.com.br/wp-admin/comment.php?action=editcomment&amp;c=67985" title="Edit comment">Edit This</a></p> 
+	</li> 
+ 
+ 
+</ol> 
+ 
+ 
+<p><a href='http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/feed/'><abbr title="Really Simple Syndication">RSS</abbr> feed for comments on this post.</a>	<a href="http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/trackback/" rel="trackback">TrackBack <abbr title="Universal Resource Locator">URL</abbr></a> 
+</p> 
+ 
+<h2 id="postcomment">Leave a comment</h2> 
+ 
+ 
+<form action="http://blog.caelum.com.br/wp-comments-post.php" method="post" id="commentform"> 
+ 
+ 
+<p>Logged in as <a href="http://blog.caelum.com.br/wp-admin/profile.php">Paulo Silveira</a>. <a href="http://blog.caelum.com.br/wp-login.php?action=logout" title="Log out of this account">Log out &raquo;</a></p> 
+ 
+ 
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>--> 
+ 
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p> 
+ 
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" /> 
+<input type="hidden" name="comment_post_ID" value="2808" /> 
+</p> 
+<input type="hidden" id="_wp_unfiltered_html_comment" name="_wp_unfiltered_html_comment" value="b12aeb71b0" /> 
+</form> 
+ 
+ 
+ 
+		
+		<div class="navigation"> 
+			<div class="alignleft"></div> 
+			<div class="alignright"></div> 
+		</div> 
+ 
+	
+	</div> 
+ 
+﻿<div id="sidebar"> 
+	
+	<center> 
+		
+        <a class="a2a_dd addtoany_subscribe" href="http://www.addtoany.com/subscribe?linkname=blog.caelum.com.br&amp;linkurl=http%3A%2F%2Fblog.caelum.com.br%2Ffeed%2F"><img src="http://blog.caelum.com.br/wp-content/plugins/add-to-any-subscribe/subscribe_120_16.png" width="120" height="16" alt="Subscribe"/></a>
+        	</center> 
+ 
+		<ul> 
+						<li> 
+				<form method="get" id="searchform" action="http://blog.caelum.com.br/"> 
+<div><input type="text" value="" name="s" id="s" /> 
+<input type="submit" id="searchsubmit" value="Procurar" /> 
+</div> 
+</form> 
+			</li> 
+ 
+			
+			<h2>Últimos posts</h2> 
+             <ul class="ultimas-noticias"> 
+                                      <li> 
+                         <small>21/07</small> 
+                              <a href="http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/"> 
+                                   Então você quer ser um arquiteto Java?                              </a> 
+                     </li> 
+ 
+                 
+             </ul> 
+ 
+             
+ 
+ 
+			
+			
+			<li><h2>Arquivos</h2> 
+				<ul> 
+					<li><a href='http://blog.caelum.com.br/2010/09/' title='September 2010'>September 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/08/' title='August 2010'>August 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/07/' title='July 2010'>July 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/06/' title='June 2010'>June 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/05/' title='May 2010'>May 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/04/' title='April 2010'>April 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/03/' title='March 2010'>March 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/02/' title='February 2010'>February 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2010/01/' title='January 2010'>January 2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2009/12/' title='December 2009'>December 2009</a></li> 
+	<li><a href='http://blog.caelum.com.br/2009/11/' title='November 2009'>November 2009</a></li> 
+	<li><a href='http://blog.caelum.com.br/2009/10/' title='October 2009'>October 2009</a></li> 
+					<li><a href='http://blog.caelum.com.br/2010/' title='2010'>2010</a></li> 
+	<li><a href='http://blog.caelum.com.br/2009/' title='2009'>2009</a></li> 
+	<li><a href='http://blog.caelum.com.br/2008/' title='2008'>2008</a></li> 
+	<li><a href='http://blog.caelum.com.br/2007/' title='2007'>2007</a></li> 
+	<li><a href='http://blog.caelum.com.br/2006/' title='2006'>2006</a></li> 
+				</ul> 
+			</li> 
+ 
+			<li id="linkcat-" class="linkcat"><h2><h2>Blogroll</h2></h2> 
+	<ul class='xoxo blogroll'> 
+<li><a href="http://ahalmeida.com">Adriano Almeida</a></li> 
+<li><a href="http://andersonleiteblog.wordpress.com/">Anderson Leite</a></li> 
+<li><a href="http://www.davidpaniz.com/blog">David Paniz</a></li> 
+<li><a href="http://qmx.me">Douglas Campos</a></li> 
+<li><a href="http://automacaoblog.blogspot.com/">Ettore Luglio</a></li> 
+<li><a href="http://fabiokung.com">Fabio Kung</a></li> 
+<li><a href="http://agilenomundoreal.com.br/" title="Agile no Mundo Real">Guilherme Silveira</a></li> 
+<li><a href="http://leandrosilva.com.br">Leandro Silva</a></li> 
+<li><a href="http://pmatiello.blogspot.com/" rel="co-worker" title="Infinite mixtape ">Pedro Matiello</a></li> 
+<li><a href="http://blog.rafaelferreira.net/">Rafael Ferreira</a></li> 
+<li><a href="http://www.sagadoprogramador.com.br">Saga do Programador</a></li> 
+<li><a href="http://vidageek.net/">Vida Geek</a></li> 
+ 
+	</ul> 
+</li> 
+ 
+			<li class="categories"><h2>Categorias</h2><ul>	<li class="cat-item cat-item-128"><a href="http://blog.caelum.com.br/category/net/" title="View all posts filed under .net">.net</a> (1)
+</li> 
+	<li class="cat-item cat-item-20"><a href="http://blog.caelum.com.br/category/ajax/" title="View all posts filed under ajax">ajax</a> (5)
+</li> 
+	<li class="cat-item cat-item-459"><a href="http://blog.caelum.com.br/category/android/" title="View all posts filed under android">android</a> (3)
+</li> 
+	<li class="cat-item cat-item-110"><a href="http://blog.caelum.com.br/category/apostila/" title="View all posts filed under apostila">apostila</a> (7)
+</li> 
+	<li class="cat-item cat-item-262"><a href="http://blog.caelum.com.br/category/bdd/" title="View all posts filed under bdd">bdd</a> (1)
+</li> 
+	<li class="cat-item cat-item-445"><a href="http://blog.caelum.com.br/category/c/" title="View all posts filed under c#">c#</a> (1)
+</li> 
+	<li class="cat-item cat-item-21"><a href="http://blog.caelum.com.br/category/caelum/" title="View all posts filed under caelum">caelum</a> (49)
+</li> 
+	<li class="cat-item cat-item-35"><a href="http://blog.caelum.com.br/category/certificacao/" title="View all posts filed under certificação">certificação</a> (4)
+</li> 
+	<li class="cat-item cat-item-5"><a href="http://blog.caelum.com.br/category/ciencia/" title="View all posts filed under ciência">ciência</a> (8)
+</li> 
+	<li class="cat-item cat-item-8"><a href="http://blog.caelum.com.br/category/citacoes/" title="View all posts filed under citações">citações</a> (2)
+</li> 
+	<li class="cat-item cat-item-335"><a href="http://blog.caelum.com.br/category/cloud/" title="View all posts filed under cloud">cloud</a> (7)
+</li> 
+	<li class="cat-item cat-item-14"><a href="http://blog.caelum.com.br/category/collections/" title="View all posts filed under collections">collections</a> (10)
+</li> 
+	<li class="cat-item cat-item-371"><a href="http://blog.caelum.com.br/category/comunidade/" title="View all posts filed under comunidade">comunidade</a> (3)
+</li> 
+	<li class="cat-item cat-item-132"><a href="http://blog.caelum.com.br/category/concorrencia/" title="View all posts filed under concorrência">concorrência</a> (4)
+</li> 
+	<li class="cat-item cat-item-389"><a href="http://blog.caelum.com.br/category/css/" title="View all posts filed under css">css</a> (2)
+</li> 
+	<li class="cat-item cat-item-11"><a href="http://blog.caelum.com.br/category/cursos/" title="View all posts filed under cursos">cursos</a> (22)
+</li> 
+	<li class="cat-item cat-item-173"><a href="http://blog.caelum.com.br/category/deployment/" title="View all posts filed under deployment">deployment</a> (7)
+</li> 
+	<li class="cat-item cat-item-6"><a href="http://blog.caelum.com.br/category/design-patterns/" title="View all posts filed under design patterns">design patterns</a> (19)
+</li> 
+	<li class="cat-item cat-item-32"><a href="http://blog.caelum.com.br/category/dsl/" title="View all posts filed under dsl">dsl</a> (4)
+</li> 
+	<li class="cat-item cat-item-111"><a href="http://blog.caelum.com.br/category/ejb/" title="View all posts filed under ejb">ejb</a> (2)
+</li> 
+	<li class="cat-item cat-item-315"><a href="http://blog.caelum.com.br/category/emprego/" title="View all posts filed under emprego">emprego</a> (2)
+</li> 
+	<li class="cat-item cat-item-9"><a href="http://blog.caelum.com.br/category/engenharia/" title="View all posts filed under engenharia">engenharia</a> (14)
+</li> 
+	<li class="cat-item cat-item-174"><a href="http://blog.caelum.com.br/category/escalabilidade/" title="View all posts filed under escalabilidade">escalabilidade</a> (9)
+</li> 
+	<li class="cat-item cat-item-26"><a href="http://blog.caelum.com.br/category/eventos/" title="View all posts filed under eventos">eventos</a> (29)
+</li> 
+	<li class="cat-item cat-item-405"><a href="http://blog.caelum.com.br/category/flex/" title="View all posts filed under flex">flex</a> (1)
+</li> 
+	<li class="cat-item cat-item-7"><a href="http://blog.caelum.com.br/category/guj/" title="View all posts filed under guj">guj</a> (9)
+</li> 
+	<li class="cat-item cat-item-13"><a href="http://blog.caelum.com.br/category/hibernate/" title="View all posts filed under hibernate">hibernate</a> (26)
+</li> 
+	<li class="cat-item cat-item-175"><a href="http://blog.caelum.com.br/category/infraestrutura/" title="View all posts filed under infraestrutura">infraestrutura</a> (8)
+</li> 
+	<li class="cat-item cat-item-16"><a href="http://blog.caelum.com.br/category/integracao/" title="View all posts filed under integração">integração</a> (18)
+</li> 
+	<li class="cat-item cat-item-2"><a href="http://blog.caelum.com.br/category/java/" title="View all posts filed under java">java</a> (75)
+</li> 
+	<li class="cat-item cat-item-27"><a href="http://blog.caelum.com.br/category/javafx/" title="View all posts filed under javafx">javafx</a> (2)
+</li> 
+	<li class="cat-item cat-item-466"><a href="http://blog.caelum.com.br/category/javame/" title="View all posts filed under javame">javame</a> (1)
+</li> 
+	<li class="cat-item cat-item-246"><a href="http://blog.caelum.com.br/category/javascript/" title="View all posts filed under javascript">javascript</a> (4)
+</li> 
+	<li class="cat-item cat-item-25"><a href="http://blog.caelum.com.br/category/jpa/" title="View all posts filed under jpa">jpa</a> (10)
+</li> 
+	<li class="cat-item cat-item-261"><a href="http://blog.caelum.com.br/category/jruby/" title="View all posts filed under jruby">jruby</a> (1)
+</li> 
+	<li class="cat-item cat-item-153"><a href="http://blog.caelum.com.br/category/jsf/" title="View all posts filed under jsf">jsf</a> (2)
+</li> 
+	<li class="cat-item cat-item-170"><a href="http://blog.caelum.com.br/category/jsp/" title="View all posts filed under jsp">jsp</a> (4)
+</li> 
+	<li class="cat-item cat-item-29"><a href="http://blog.caelum.com.br/category/jstl/" title="View all posts filed under jstl">jstl</a> (4)
+</li> 
+	<li class="cat-item cat-item-3"><a href="http://blog.caelum.com.br/category/linux/" title="View all posts filed under linux">linux</a> (2)
+</li> 
+	<li class="cat-item cat-item-10"><a href="http://blog.caelum.com.br/category/livros/" title="View all posts filed under livros">livros</a> (6)
+</li> 
+	<li class="cat-item cat-item-12"><a href="http://blog.caelum.com.br/category/mercado/" title="View all posts filed under mercado">mercado</a> (17)
+</li> 
+	<li class="cat-item cat-item-361"><a href="http://blog.caelum.com.br/category/nosql/" title="View all posts filed under nosql">nosql</a> (2)
+</li> 
+	<li class="cat-item cat-item-17"><a href="http://blog.caelum.com.br/category/oo/" title="View all posts filed under oo">oo</a> (21)
+</li> 
+	<li class="cat-item cat-item-22"><a href="http://blog.caelum.com.br/category/open-source/" title="View all posts filed under open source">open source</a> (10)
+</li> 
+	<li class="cat-item cat-item-227"><a href="http://blog.caelum.com.br/category/opiniao/" title="View all posts filed under opinião">opinião</a> (4)
+</li> 
+	<li class="cat-item cat-item-553"><a href="http://blog.caelum.com.br/category/otimizacao/" title="View all posts filed under otimização">otimização</a> (2)
+</li> 
+	<li class="cat-item cat-item-33"><a href="http://blog.caelum.com.br/category/palestra/" title="View all posts filed under palestra">palestra</a> (7)
+</li> 
+	<li class="cat-item cat-item-40"><a href="http://blog.caelum.com.br/category/palestras/" title="View all posts filed under palestras">palestras</a> (12)
+</li> 
+	<li class="cat-item cat-item-530"><a href="http://blog.caelum.com.br/category/praticas/" title="View all posts filed under práticas">práticas</a> (3)
+</li> 
+	<li class="cat-item cat-item-410"><a href="http://blog.caelum.com.br/category/principal/" title="View all posts filed under principal">principal</a> (127)
+<ul class='children'> 
+	<li class="cat-item cat-item-156"><a href="http://blog.caelum.com.br/category/principal/agile/" title="View all posts filed under Agile">Agile</a> (22)
+</li> 
+	<li class="cat-item cat-item-34"><a href="http://blog.caelum.com.br/category/principal/arquitetura/" title="View all posts filed under arquitetura">arquitetura</a> (38)
+</li> 
+	<li class="cat-item cat-item-411"><a href="http://blog.caelum.com.br/category/principal/desenvolvimento-principal/" title="View all posts filed under desenvolvimento">desenvolvimento</a> (56)
+</li> 
+	<li class="cat-item cat-item-412"><a href="http://blog.caelum.com.br/category/principal/design-principal/" title="View all posts filed under design">design</a> (6)
+</li> 
+	<li class="cat-item cat-item-1"><a href="http://blog.caelum.com.br/category/principal/geral/" title="View all posts filed under geral">geral</a> (32)
+</li> 
+</ul> 
+</li> 
+	<li class="cat-item cat-item-316"><a href="http://blog.caelum.com.br/category/projeto/" title="View all posts filed under projeto">projeto</a> (2)
+</li> 
+	<li class="cat-item cat-item-236"><a href="http://blog.caelum.com.br/category/rails/" title="View all posts filed under rails">rails</a> (13)
+</li> 
+	<li class="cat-item cat-item-70"><a href="http://blog.caelum.com.br/category/rest/" title="View all posts filed under rest">rest</a> (2)
+</li> 
+	<li class="cat-item cat-item-31"><a href="http://blog.caelum.com.br/category/ruby/" title="View all posts filed under ruby">ruby</a> (21)
+</li> 
+	<li class="cat-item cat-item-24"><a href="http://blog.caelum.com.br/category/screencast/" title="View all posts filed under screencast">screencast</a> (5)
+</li> 
+	<li class="cat-item cat-item-30"><a href="http://blog.caelum.com.br/category/scrum/" title="View all posts filed under scrum">scrum</a> (12)
+</li> 
+	<li class="cat-item cat-item-154"><a href="http://blog.caelum.com.br/category/seam/" title="View all posts filed under seam">seam</a> (1)
+</li> 
+	<li class="cat-item cat-item-244"><a href="http://blog.caelum.com.br/category/seguranca/" title="View all posts filed under segurança">segurança</a> (2)
+</li> 
+	<li class="cat-item cat-item-19"><a href="http://blog.caelum.com.br/category/servidores/" title="View all posts filed under servidores">servidores</a> (9)
+</li> 
+	<li class="cat-item cat-item-382"><a href="http://blog.caelum.com.br/category/servlets/" title="View all posts filed under servlets">servlets</a> (1)
+</li> 
+	<li class="cat-item cat-item-273"><a href="http://blog.caelum.com.br/category/soa/" title="View all posts filed under soa">soa</a> (5)
+</li> 
+	<li class="cat-item cat-item-81"><a href="http://blog.caelum.com.br/category/spring/" title="View all posts filed under spring">spring</a> (3)
+</li> 
+	<li class="cat-item cat-item-4"><a href="http://blog.caelum.com.br/category/tecnologia/" title="View all posts filed under tecnologia">tecnologia</a> (12)
+</li> 
+	<li class="cat-item cat-item-15"><a href="http://blog.caelum.com.br/category/testes/" title="View all posts filed under testes">testes</a> (15)
+</li> 
+	<li class="cat-item cat-item-39"><a href="http://blog.caelum.com.br/category/treinamento/" title="View all posts filed under treinamento">treinamento</a> (7)
+</li> 
+	<li class="cat-item cat-item-268"><a href="http://blog.caelum.com.br/category/tv-digital/" title="View all posts filed under tv digital">tv digital</a> (2)
+</li> 
+	<li class="cat-item cat-item-388"><a href="http://blog.caelum.com.br/category/user-experiencie/" title="View all posts filed under user experiencie">user experiencie</a> (2)
+</li> 
+	<li class="cat-item cat-item-18"><a href="http://blog.caelum.com.br/category/vraptor/" title="View all posts filed under vraptor">vraptor</a> (8)
+</li> 
+	<li class="cat-item cat-item-28"><a href="http://blog.caelum.com.br/category/web/" title="View all posts filed under web">web</a> (21)
+</li> 
+	<li class="cat-item cat-item-393"><a href="http://blog.caelum.com.br/category/webdesign/" title="View all posts filed under webdesign">webdesign</a> (3)
+</li> 
+	<li class="cat-item cat-item-48"><a href="http://blog.caelum.com.br/category/webservices/" title="View all posts filed under webservices">webservices</a> (9)
+</li> 
+	<li class="cat-item cat-item-50"><a href="http://blog.caelum.com.br/category/xml/" title="View all posts filed under xml">xml</a> (4)
+</li> 
+</ul></li>		
+					</ul> 
+	</div> 
+ 
+ 
+<!-- begin footer --> 
+</div> 
+ 
+<br/> 
+ 
+<hr class="separador"/> 
+<div id="caelumfooter" class="vcard"> 
+	<div class="left"> 
+		<div class="fn org">Caelum | Ensino e Inovação</div> 
+		
+		<span class="adr"> 
+			<span class="locality"><b>São Paulo:</b></span> 
+			<span class="street-address">Rua Vergueiro, 3185, cj. 87, próximo ao Metrô Vila Mariana</span> 
+		</span>  &nbsp; | &nbsp; 
+		Tel. <span class="tel">(11) 5571-2751</span><br/> 
+		
+		<span class="adr"> 
+			<span class="locality"><b>Rio de Janeiro:</b></span> 
+			<span class="street-address">Rua Senador Dantas, 80, cj. 307/308 - Centro</span> 
+		</span>  &nbsp; | &nbsp; 
+		Tel. <span class="tel">(21)  2220-4156 ou 2297-0033</span><br/> 
+		
+        <span class="adr"> 
+            <span class="locality"><b>Brasília:</b></span> 
+            <span class="street-address">SCS Qd. 8 Bl. B-50, Sala 521 - Ed. Venâncio 2000</span> 
+        </span>  &nbsp; | &nbsp; 
+        Tel. <span class="tel">(61) 3039-4222</span><br/> 
+	</div> 
+	<div class="right"> 
+		<a href="http://www.caelum.com.br/contato/">Entre em contato</a> 
+	</div> 
+</div> 
+</div> 
+</div> 
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+<script type="text/javascript" src="http://www.caelum.com.br/javascripts/caelum.package.js"></script> 
+<!--[if IE 6]>
+	<script type="text/javascript" src="http://www.caelum.com.br/javascripts/base/ie6.js"></script>
+<![endif]--> 
+ 
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript"> 
+var pageTracker = _gat._getTracker("UA-270161-5");
+pageTracker._trackPageview();
+</script> 
+ 
+<script type="text/javascript"> 
+a2a_localize = {
+	Share: "Share",
+	Save: "Save",
+	Subscribe: "Subscribe",
+	Email: "E-mail",
+    Bookmark: "Bookmark",
+	ShowAll: "Show all",
+	ShowLess: "Show less",
+	FindServices: "Find service(s)",
+	FindAnyServiceToAddTo: "Instantly find any service to add to",
+	PoweredBy: "Powered by",
+	ShareViaEmail: "Share via e-mail",
+	SubscribeViaEmail: "Subscribe via e-mail",
+	BookmarkInYourBrowser: "Bookmark in your browser",
+	BookmarkInstructions: "Press Ctrl+D or Cmd+D to bookmark this page",
+	AddToYourFavorites: "Add to your favorites",
+	SendFromWebOrProgram: "Send from any e-mail address or e-mail program",
+    EmailProgram: "E-mail program"
+};
+a2a_linkname="Então você quer ser um arquiteto Java?";
+a2a_linkurl="http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/";
+ 
+</script><script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script> 
+ 
+<script type="text/javascript"> 
+a2a_linkname="blog.caelum.com.br";
+a2a_linkurl="http://blog.caelum.com.br/feed/";
+</script><script type="text/javascript" src="http://static.addtoany.com/menu/feed.js"></script> 
+ 
+ 
+</body> 
+</html> 
