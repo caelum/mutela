@@ -42,7 +42,27 @@ public class DefaultContentExtractorTest {
 		// http://blogs.mercurynews.com/aei/2009/06/04/ramya-auroprem-joins-cast-of-spelling-bee/
 		test("/ramya.txt", "/ramya.html", "Ramya Auroprem joins cast of “Spelling Bee”");
 	}
+
 	
+	@Test
+	public void testBlogCaelum() throws IOException {
+		// http://blog.caelum.com.br/2010/07/21/entao-voce-quer-ser-um-arquiteto-java/
+		test("/arquiteto.txt", "/arquiteto.html", "Então você quer ser um arquiteto Java?”");
+	}
+
+	@Test
+	public void testNoticiaUOL() throws IOException {
+		// http://noticias.uol.com.br/bbc/2010/10/03/fiel-da-balanca-marina-propoe-plenaria-no-pv-sobre-2-turno.jhtm
+		test("/uol.txt", "/uol.html", "Fiel da balança, Marina propõe plenária no PV sobre 2º turno”");
+	}
+
+	
+	@Test
+	public void testNoticiaGlobo() throws IOException {
+		// http://g1.globo.com/especiais/eleicoes-2010/noticia/2010/10/marta-suplicy-se-diz-surpresa-com-desempenho-de-aloysio-nunes.html
+		test("/globo.txt", "/globo.html", "Marta Suplicy se diz surpresa com desempenho de Aloysio Nunes”");
+	}
+
 	@Test
 	public void testAria() throws IOException {
 		http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2009/06/04/DD7V1806SV.DTL&type=performance
