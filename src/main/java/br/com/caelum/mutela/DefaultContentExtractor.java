@@ -18,10 +18,6 @@ import org.slf4j.LoggerFactory;
 
 public class DefaultContentExtractor implements ContentExtractor {
 
-	private  String fullContent;
-
-	private Map<Element, Integer> elementToScore = new HashMap<Element, Integer>();
-
 	private static Logger log = LoggerFactory.getLogger(DefaultContentExtractor.class);
 
 	// adaptado do Readability
@@ -31,6 +27,10 @@ public class DefaultContentExtractor implements ContentExtractor {
 	public static final String negative = "(?i)(?m).*[combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget].*";
 	public static final String divToPElements = "(?i)(?m).*<[a|blockquote|dl|div|ol|p|pre|table|ul].*";
 
+	private  String fullContent;
+	
+	private Map<Element, Integer> elementToScore = new HashMap<Element, Integer>();
+
 	private List<Element> elements;
 
 	private String content;
@@ -38,11 +38,16 @@ public class DefaultContentExtractor implements ContentExtractor {
 	private Integer score;
 
 	public DefaultContentExtractor(String fullContent) {
-		parse(fullContent);
+		this.fullContent = fullContent;
+		extractContent();
+		extractTitle();
 	}
 
-	private void parse(String fullContent) {
-		this.fullContent = fullContent;
+	private void extractTitle() {
+	}
+
+	private void extractContent() {
+		
 		Source source = new Source(this.fullContent);
 		source.fullSequentialParse();
 		

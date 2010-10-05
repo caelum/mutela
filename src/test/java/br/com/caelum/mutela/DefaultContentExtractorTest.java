@@ -76,6 +76,6 @@ public class DefaultContentExtractorTest {
 		ContentExtractor extractor = new DefaultContentExtractor(readFile(htmlFile));
 		
 		assertThat(extractor.content(), startsWith(text.substring(0, 15)));
-		//assertThat(extractor.title(), Matchers.equalTo(title));
+		assertThat(extractor.title(), Matchers.equalTo(title));
 	}
 }
