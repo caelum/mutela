@@ -27,8 +27,8 @@ public class DefaultContentExtractor implements ContentExtractor {
 	public static final String negative = "(?i)(?m).*[combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget].*";
 	public static final String divToPElements = "(?i)(?m).*<[a|blockquote|dl|div|ol|p|pre|table|ul].*";
 
-	private  String fullContent;
-	
+	private String fullContent;
+
 	private Map<Element, Integer> elementToScore = new HashMap<Element, Integer>();
 
 	private List<Element> elements;
@@ -37,6 +37,8 @@ public class DefaultContentExtractor implements ContentExtractor {
 
 	private Integer score;
 
+	private String title;
+
 	public DefaultContentExtractor(String fullContent) {
 		this.fullContent = fullContent;
 		extractContent();
@@ -44,13 +46,40 @@ public class DefaultContentExtractor implements ContentExtractor {
 	}
 
 	private void extractTitle() {
-	}
-
-	private void extractContent() {
 		
 		Source source = new Source(this.fullContent);
 		source.fullSequentialParse();
-		
+		Element titleElement = source.getFirstElement("title");
+		String originalTitle = titleElement.getTextExtractor().toString();
+		log.debug("titulo inicial {}", originalTitle);
+
+		// da-lhe codigo feio
+		String newTitle = null;
+		if (originalTitle.contains("| "))
+			newTitle = biggestPartOf(originalTitle, "| ");
+		else if (originalTitle.contains("- "))
+			newTitle = biggestPartOf(originalTitle, "- ");
+		else if (originalTitle.contains(": "))
+			newTitle = biggestPartOf(originalTitle, ": ");
+
+		this.title = newTitle.split("\\s+").length > 3 ? newTitle : originalTitle;
+		this.title = this.title.trim();
+		log.debug("titulo resultante {}", this.title);
+	}
+
+	private String biggestPartOf(String string, String token) {
+		int pos = string.indexOf(token);
+		String candidato1 = string.substring(0, pos);
+		String candidato2 = string.substring(Math.min(pos + 1, string.length() - 1));
+		string = candidato1.split("\\s+").length > candidato2.split("\\s+").length ? candidato1 : candidato2;
+		return string;
+	}
+
+	private void extractContent() {
+
+		Source source = new Source(this.fullContent);
+		source.fullSequentialParse();
+
 		this.elements = source.getAllElements();
 
 		for (Iterator<Element> i = elements.iterator(); i.hasNext();) {
@@ -58,8 +87,10 @@ public class DefaultContentExtractor implements ContentExtractor {
 			Element e = i.next();
 
 			if (canBeContent(e)) {
-				// pontuamos apenas P, TD, PRE e tambem DIVs que poderiam ser PRE
-				// adiciona os pontos pro pai dele, e tambem m etade pro av™ dele.
+				// pontuamos apenas P, TD, PRE e tambem DIVs que poderiam ser
+				// PRE
+				// adiciona os pontos pro pai dele, e tambem m etade pro avï¿½
+				// dele.
 				int weight = getValueForTag(e.getStartTag());
 
 				if (matches(e.getAttributeValue("class"), positive) || matches(e.getAttributeValue("id"), positive)) {
@@ -91,14 +122,14 @@ public class DefaultContentExtractor implements ContentExtractor {
 				if (weight > 0)
 					weight *= (double) (1 - ((double) links / (double) e.toString().length()));
 
-				// parentElement Ž quem recebe pontuacao
+				// parentElement ï¿½ quem recebe pontuacao
 				if (e.getParentElement() != null)
 					addScore(e.getParentElement(), weight);
 			}
 
 		}
 
-		if(elements.isEmpty()) {
+		if (elements.isEmpty()) {
 			throw new IllegalStateException("nenhum elemento candidato encontrado");
 		}
 		// ordenando para pegar quem tem mais pontos:
@@ -120,13 +151,12 @@ public class DefaultContentExtractor implements ContentExtractor {
 		for (Element e : elements.subList(0, Math.min(3, elements.size()))) {
 			log.debug("");
 			log.debug("======================== Score deste: " + elementToScore.get(e));
-			TextExtractor extractor=new TextExtractor(e);
+			TextExtractor extractor = new TextExtractor(e);
 			log.debug(extractor.setIncludeAttributes(false).toString());
 			log.debug("======================== Raw html: ");
 			log.debug(e.toString());
 		}
 
-		
 		this.content = elements.get(0).getTextExtractor().setIncludeAttributes(false).toString();
 		this.score = elementToScore.get(elements.get(0));
 	}
@@ -153,7 +183,7 @@ public class DefaultContentExtractor implements ContentExtractor {
 	}
 
 	private boolean canBeContent(Element e) {
-		// P, PRE ou  DIV que se encaixa como P
+		// P, PRE ou DIV que se encaixa como P
 		return e.getName().toLowerCase() == HTMLElementName.P || e.getName().toLowerCase() == HTMLElementName.PRE;
 		// || (e.getName() == HTMLElementName.DIV &&
 		// !e.getContent().toString().matches(divToPElements));
@@ -172,10 +202,9 @@ public class DefaultContentExtractor implements ContentExtractor {
 
 	@Override
 	public String title() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.title;
 	}
-	
+
 	public int getScore() {
 		return score;
 	}
