@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import junit.framework.Assert;
+
 import org.hamcrest.Matchers;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -71,7 +73,20 @@ public class DefaultContentExtractorTest {
 		//http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2009/06/04/DD7V1806SV.DTL&type=performance
 		test("/aria.txt", "/aria.html", "'Tosca' arias pulsate");
 	}
-
+	
+	@Test
+	public void testExtractImagesFromGlobo() throws IOException{
+		ContentExtractor extractor = new DefaultContentExtractor(readFile("/globo.html"));
+		Image image = new Image(200,300,"http://s.glbimg.com/jo/g1/f/original/2010/10/04/marta-suplicy.jpg");
+		Assert.assertTrue(extractor.images().contains(image));
+	}
+	
+	@Test
+	public void testExtractImagesFromAria() throws IOException{
+		ContentExtractor extractor = new DefaultContentExtractor(readFile("/aria.html"));
+		Image image = new Image(200,300,"http://imgs.sfgate.com/c/pictures/2009/06/02/dd-tosca04_ph_0500219948.jpg");
+		Assert.assertTrue(extractor.images().contains(image));
+	}
 
 	private  void test(String txtFile, String  htmlFile, String title) throws IOException {
 		String text = readFile(txtFile);

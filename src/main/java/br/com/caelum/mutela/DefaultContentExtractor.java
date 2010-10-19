@@ -1,11 +1,14 @@
 package br.com.caelum.mutela;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.HTMLElementName;
@@ -208,5 +211,24 @@ public class DefaultContentExtractor implements ContentExtractor {
 	public int getScore() {
 		return score;
 	}
+	
+	private Set<Image> getImageUrlsFromElement(Element element) {
+		Set<Image> imageUrls = new HashSet<Image>();
+		
+		for (StartTag startTag :  element.getAllStartTags()) {
+			if (startTag.getName() == HTMLElementName.IMG) {
+				imageUrls.add(new Image(0, 0, startTag.getAttributeValue("src")));
+			}
+		}
+		return imageUrls;
+	}
 
+	public Collection<Image> images() {
+		Set<Image> images = new HashSet<Image>();
+		for (Element e : elements.subList(0, Math.min(3, elements.size()))) {
+			images.addAll(getImageUrlsFromElement(e));
+		}
+		return images ;
+	}
+	
 }
