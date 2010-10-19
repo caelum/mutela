@@ -138,15 +138,13 @@ public class DefaultContentExtractor implements ContentExtractor {
 		// ordenando para pegar quem tem mais pontos:
 		Collections.sort(elements, new Comparator<Element>() {
 			public int compare(Element o1, Element o2) {
-				return getScore(o1) - getScore(o2);
+				return getScore(o2) - getScore(o1);
 			}
 
 			private int getScore(Element e) {
 				return elementToScore.get(e) == null ? 0 : elementToScore.get(e);
 			}
 		});
-
-		Collections.reverse(elements);
 
 		log.debug("Total de " + elements.size() + " elementos ");
 
