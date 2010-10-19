@@ -82,10 +82,16 @@ public class DefaultContentExtractorTest {
 	}
 	
 	@Test
-	public void testExtractImagesFromAria() throws IOException{
-		ContentExtractor extractor = new DefaultContentExtractor(readFile("/aria.html"));
-		Image image = new Image(200,300,"http://imgs.sfgate.com/c/pictures/2009/06/02/dd-tosca04_ph_0500219948.jpg");
+	public void testExtractImagesFromArquiteto() throws IOException{
+		ContentExtractor extractor = new DefaultContentExtractor(readFile("/arquiteto.html"));
+		Image image = new Image(501,216,"http://blog.caelum.com.br/wp-content/uploads/2010/07/neo-architect.jpg");
 		Assert.assertTrue(extractor.images().contains(image));
+	}
+	
+	@Test
+	public void testDontExtractImagesWhenThereArentAnyInMostRelevantElement() throws IOException{
+		ContentExtractor extractor = new DefaultContentExtractor(readFile("/aria.html"));
+		Assert.assertTrue(extractor.images().isEmpty());
 	}
 
 	private  void test(String txtFile, String  htmlFile, String title) throws IOException {
@@ -95,4 +101,5 @@ public class DefaultContentExtractorTest {
 		assertThat(extractor.content(), startsWith(text.substring(0, 15)));
 		assertThat(extractor.title(), Matchers.equalTo(title));
 	}
+	
 }
