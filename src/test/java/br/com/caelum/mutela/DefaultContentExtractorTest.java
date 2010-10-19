@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import junit.framework.Assert;
@@ -77,7 +78,7 @@ public class DefaultContentExtractorTest {
 	@Test
 	public void testExtractImagesFromGlobo() throws IOException{
 		ContentExtractor extractor = new DefaultContentExtractor(readFile("/globo.html"));
-		Image image = new Image(200,300,"http://s.glbimg.com/jo/g1/f/original/2010/10/04/marta-suplicy.jpg");
+		Image image = new Image(300,225,"http://s.glbimg.com/jo/g1/f/original/2010/10/04/marta-suplicy.jpg");
 		Assert.assertTrue(extractor.images().contains(image));
 	}
 	
@@ -86,6 +87,16 @@ public class DefaultContentExtractorTest {
 		ContentExtractor extractor = new DefaultContentExtractor(readFile("/arquiteto.html"));
 		Image image = new Image(501,216,"http://blog.caelum.com.br/wp-content/uploads/2010/07/neo-architect.jpg");
 		Assert.assertTrue(extractor.images().contains(image));
+	}
+	
+	@Test
+	public void testExtractImageWithWidthAndHeight() throws IOException{
+		ContentExtractor extractor = new DefaultContentExtractor(readFile("/arquiteto.html"));
+		Image image = new Image(501,216,"http://blog.caelum.com.br/wp-content/uploads/2010/07/neo-architect.jpg");
+		ArrayList<Image> extractedImages = new ArrayList<Image>(extractor.images());
+		Image imageOnList = extractedImages.get(extractedImages.indexOf(image));
+		Assert.assertEquals(216, imageOnList.getHeight());
+		Assert.assertEquals(501, imageOnList.getWidth());
 	}
 	
 	@Test
